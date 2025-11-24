@@ -12,7 +12,8 @@ class AppColors {
   static const Color bg2Light = Color(0xFFF9F9F9);
   static const Color error = Color(0xFFFF6961);
 
-  static const Color primary = Color(0xFF1976D2);
+  static const Color primary = Color(0xFF001172);
+  static const Color secondary = Color(0xFF01A9D0);
   static const Color ultraLightBlue = Color(0xFFE3F2FD);
   static const Color softSkyBlue = Color(0xFFBBDEFB);
   static const Color lightestBlue = Color(0xFF90CAF9);
@@ -38,31 +39,12 @@ class AppColors {
   // ===== Feature Palettes =====
   static const FeaturePalette brandPalette = FeaturePalette(
     primary: primary,
+    secondary: secondary,
     primaryAccent: lightBlue,
     light: softSkyBlue,
     chipBackground: ultraLightBlue,
     dark: darkBlue,
     sidebar: darkBlue,
-    primaryForeground: white,
-  );
-
-  static const FeaturePalette purchasePalette = FeaturePalette(
-    primary: Color(0xFF2E7D32),
-    primaryAccent: Color(0xFF66BB6A),
-    light: Color(0xFFA5D6A7),
-    chipBackground: Color(0xFFE8F5E9),
-    dark: Color(0xFF1B5E20),
-    sidebar: Color(0xFF0F3A1D),
-    primaryForeground: white,
-  );
-
-  static const FeaturePalette salesPalette = FeaturePalette(
-    primary: Color(0xFF8E24AA),
-    primaryAccent: Color(0xFFBA68C8),
-    light: Color(0xFFD1C4E9),
-    chipBackground: Color(0xFFF3E5F5),
-    dark: Color(0xFF4A148C),
-    sidebar: Color(0xFF2E0854),
     primaryForeground: white,
   );
 
@@ -136,17 +118,6 @@ class AppColors {
   static AppThemeColors colorsFor(bool isDark) => isDark ? dark : light;
 
   static AppThemeColors of(BuildContext c) => Theme.of(c).brightness == Brightness.dark ? dark : light;
-
-  static FeaturePalette featurePaletteFor(String sectionKey) {
-    final root = sectionKey.split(':').first.toLowerCase();
-    switch (root) {
-      case 'purchase':
-        return purchasePalette;
-      default:
-        return brandPalette;
-    }
-  }
-
 }
 
 class AppThemeColors {
@@ -157,6 +128,7 @@ class AppThemeColors {
 
   // Added semantic tokens (optional with defaults)
   final Color primary; // brand primary
+  final Color secondary; // brand secondary
   final Color error; // main error (not only border)
   final Color success; // success states
   final Color warning; // warnings
@@ -193,6 +165,7 @@ class AppThemeColors {
 
     // optional (new) — safe defaults
     this.primary = AppColors.primary,
+    this.secondary = AppColors.secondary,
     this.error = AppColors.error,
     this.success = AppColors.success,
     this.warning = AppColors.warning,
@@ -212,6 +185,7 @@ class AppThemeColors {
 
 class FeaturePalette {
   final Color primary;
+  final Color secondary;
   final Color primaryAccent;
   final Color light;
   final Color chipBackground;
@@ -221,6 +195,7 @@ class FeaturePalette {
 
   const FeaturePalette({
     required this.primary,
+    required this.secondary,
     required this.primaryAccent,
     required this.light,
     required this.chipBackground,
@@ -230,11 +205,7 @@ class FeaturePalette {
   });
 }
 
-// sugar
-extension AppCx on BuildContext {
-  AppThemeColors get colors => AppColors.of(this);
-  bool get isDark => Theme.of(this).brightness == Brightness.dark;
-}
+
 
 
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '/core/theme/app_colors.dart';
+import '/shared/extensions/context_extensions.dart';
 import '/shared/cubits/locale/locale_cubit.dart';
 
 import '/core/constants/app_constants.dart';

@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import '/shared/services/api_service.dart';
 import '/shared/services/cache_manager.dart';
 import '/core/constants/api_endpoints.dart';
@@ -32,6 +33,26 @@ class ProvidersRemoteSource {
         .whereType<Map>()
         .map((row) => Provider.fromMap(Map<String, dynamic>.from(row)))
         .toList(growable: false);
+  }
+
+  Future<void> registerProvider({
+    required Map<String, dynamic> payload,
+    List<MultipartFile>? workImages,
+    MultipartFile? profileImage,
+    MultipartFile? portfolioFile,
+  }) async {
+    final data = FormData.fromMap({
+      ...payload,
+      if (profileImage != null) 'profile_image': profileImage,
+      if (portfolioFile != null) 'portfolio_file': portfolioFile,
+      if (workImages != null && workImages.isNotEmpty) 'work_images[]': workImages,
+    });
+
+    try {
+      await api.postFormData(ApiEndPoints.providers, data: data);
+    } on AppException {
+      rethrow;
+    }
   }
 
   Future<ProvidersDeltaResult> sync({String? lastSynced, int page = 1, int perPage = 200}) async {

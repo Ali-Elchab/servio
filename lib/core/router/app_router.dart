@@ -6,6 +6,7 @@ import '/features/home/presentation/home_screen.dart';
 import '/features/auth/presentation/screens/onboarding_screen.dart';
 import '/features/auth/presentation/screens/login_screen.dart';
 import '/features/auth/presentation/screens/register_screen.dart';
+import '/features/auth/presentation/screens/register_provider_screen.dart';
 import '/features/account/presentation/profile_screen.dart';
 import '/features/settings/presentation/settings_screen.dart';
 import '/core/router/app_router_paths.dart';
@@ -50,6 +51,7 @@ GoRouter buildRouter(BuildContext context) {
       GoRoute(path: RouterPaths.onboarding, builder: (_, __) => const OnboardingScreen()),
       GoRoute(path: RouterPaths.login, builder: (_, __) => const LoginScreen()),
       GoRoute(path: RouterPaths.register, builder: (_, __) => const RegisterScreen()),
+      GoRoute(path: RouterPaths.registerProvider, builder: (_, __) => const RegisterProviderScreen()),
       ShellRoute(
         builder: (context, state, child) => AppShell(state: state, child: child),
         routes: [

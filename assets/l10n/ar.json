@@ -1,478 +1,242 @@
 {
-  "auth": {
-    "welcome": {
-      "title": "تجربة تسوق أسهل لحياة أفضل",
-      "subtitle": "وفّر وقتك، تسوّق بسهولة، واستمتع بتوصيل سريع إلى منزلك!",
-      "cta": "جاهز لملء سلة التسوق؟",
-      "ctaDescription": "ابدأ من خلال إنشاء حسابك",
-      "signupMessage": "سجّل الآن واستمتع بتجربة سلسة وميزات مخصصة لك.",
-      "signinMessage": "سجّل الدخول لمتابعة تجربة التسوق الخاصة بك.",
-      "createAnAccount": "إنشاء حساب"
-    },
-    "login": {
-      "title": "مرحبًا بعودتك!",
-      "forgotPassword": "نسيت كلمة المرور؟",
-      "resetPassword": "إعادة تعيين كلمة المرور",
-      "enterEmail": "أدخل بريدك الإلكتروني لإعادة تعيين كلمة المرور",
-      "resetLinkSent": "تم إرسال رابط إعادة التعيين إلى بريدك الإلكتروني",
-      "newPassword": "كلمة المرور الجديدة",
-      "confirmNewPassword": "تأكيد كلمة المرور الجديدة",
-      "emailTab": "البريد الإلكتروني",
-      "phoneTab": "رقم الهاتف"
-    },
-    "buttons": {
-      "login": "تسجيل الدخول",
-      "register": "التسجيل",
-      "signUp": "إنشاء حساب",
-      "createAccount": "إنشاء حساب",
-      "logout": "تسجيل الخروج",
-      "deleteAccount": "حذف الحساب",
-      "continueAsGuest": "المتابعة كضيف",
-      "signInWithGoogle": "تسجيل الدخول عبر جوجل"
-    },
-    "labels": {
-      "haveAccount": "هل لديك حساب بالفعل؟",
-      "dontHaveAccount": "ليس لديك حساب؟",
-      "rememberMe": "تذكرني",
-      "guest": "مستخدم زائر"
-    },
-    "terms": {
-      "text": "باستخدامك للتطبيق فإنك توافق على",
-      "link": "الشروط والأحكام"
-    }
-  },
-
-  "home": {
-    "cards": {
-      "inventory": {
-        "title": "المخزون",
-        "subtitle": "إدارة الأصناف، التحويلات، والتعديلات",
-        "infoModules": "5 وحدات",
-        "infoUpdated": "تم التحديث قبل ساعتين"
+   "auth": {
+      "welcome": {
+        "title": "تسوق أسهل، حياة أطيب",
+        "subtitle": "وفر وقتك وتسوق بكل سهولة، واستمتع بتوصيل سريع للمنزل",
+        "cta": "جاهز لتجربة تسوّق أسهل؟",
+        "ctaDescription": "ابدأ مع حسابك",
+        "signupMessage": "سجل الآن واستمتع بتجربة سلسة مع ميزات مخصصة.",
+        "signinMessage": "سجل الدخول لمتابعة تجربة تسوقك بسهولة",
+        "createAnAccount": "إنشاء حساب"
       },
-      "purchases": {
-        "title": "المشتريات",
-        "subtitle": "الطلبات، الفواتير، وإدارة الموردين",
-        "infoModules": "4 وحدات",
-        "infoUpdated": "تم التحديث قبل 5 ساعات"
+      "login": {
+        "title": "مرحبًا بعودتك!",
+        "forgotPassword": "نسيت كلمة المرور؟",
+        "resetPassword": "إعادة تعيين كلمة المرور",
+        "enterEmail": "أدخل بريدك الإلكتروني لإعادة تعيين كلمة المرور",
+        "resetLinkSent": "تم إرسال رابط إعادة تعيين كلمة المرور إلى بريدك الإلكتروني",
+        "newPassword": "كلمة المرور الجديدة",
+        "confirmNewPassword": "تأكيد كلمة المرور الجديدة"
       },
-      "sales": {
-        "title": "المبيعات",
-        "subtitle": "طلبات العملاء، المرتجعات، والفواتير",
-        "infoModules": "4 وحدات",
-        "infoUpdated": "تم التحديث قبل ساعة"
-      }
-    }
-  },
-
-  "inventory": {
-    "main": {
-      "itemsLabel": "الأصناف:",
-      "addItem": "إضافة صنف"
-    },
-    "items": {
-      "title": "الأصناف",
-      "searchHint": "ابحث بالاسم أو الكود...",
-      "filters": {
-        "drawerTitle": "تصفية الأصناف",
-        "brand": "العلامة التجارية",
-        "category": "الفئة",
-        "inStock": "المتوفر فقط",
-        "minPrice": "أقل سعر",
-        "minPriceHint": "مثال: 10",
-        "createdBetween": "تاريخ الإنشاء بين"
+      "buttons": {
+        "login": "تسجيل الدخول",
+        "register": "انشاء حساب",
+        "signUp": "التسجيل",
+        "createAccount": "انشاء حساب",
+        "logout": "تسجيل الخروج",
+        "deleteAccount": "حذف الحساب",
+        "continueAsGuest": "المتابعة كضيف",
+        "signInWithGoogle": "تسجيل الدخول باستخدام جوجل"
       },
-      "empty": {
-        "title": "لا توجد أصناف",
-        "message": "جرّب تعديل الفلاتر أو أعد المزامنة.",
-        "clearFilters": "مسح الفلاتر"
+      "labels": {
+        "haveAccount": "هل لديك حساب؟",
+        "dontHaveAccount": "ليس لديك حساب؟",
+        "rememberMe": "تذكرني",
+        "guest": "ضيف"
+      },
+      "terms": {
+        "text": "باستخدامك لهذا التطبيق، فإنك توافق على",
+        "link": "الشروط والأحكام"
       }
     },
-    "transfers": {
-      "title": "التحويلات",
-      "period": {
-        "day": "يوم",
-        "week": "أسبوع",
-        "month": "شهر",
-        "year": "سنة"
-      },
-      "in": {
-        "title": "تحويلات واردة"
-      },
-      "out": {
-        "title": "تحويلات صادرة",
-        "searchHint": "ابحث بالكود أو الملاحظات...",
-        "tabs": {
-          "transfers": "التحويلات",
-          "drafts": "المسودات"
-        },
-        "summaryAll": "كل التحويلات الصادرة",
-        "empty": {
-          "errorTitle": "خطأ في تحميل التحويلات",
-          "title": "لا توجد تحويلات",
-          "message": "أنشئ أول تحويل صادر لتراه هنا."
-        },
-        "drafts": {
-          "empty": {
-            "title": "لا توجد مسودات",
-            "message": "ابدأ تحويلًا جديدًا ليظهر هنا كمسودة."
-          },
-          "cardTitlePrefix": "مسودة",
-          "deleteTooltip": "حذف المسودة",
-          "itemsLabel": "الأصناف",
-          "continue": "متابعة",
-          "fromLabel": "من",
-          "toLabel": "إلى",
-          "dateLabel": "التاريخ",
-          "noDate": "لا يوجد تاريخ بعد"
-        },
-        "list": {
-          "empty": {
-            "title": "لا توجد تحويلات",
-            "message": "لا يوجد تحويلات مطابقة للبحث أو الفلاتر."
-          },
-          "transferLabel": "تحويل",
-          "dateLabel": "تاريخ التحويل"
-        },
-        "table": {
-          "headers": {
-            "name": "الاسم",
-            "barcode": "الباركود",
-            "uom": "الوحدة",
-            "qty": "الكمية",
-            "actions": ""
-          },
-          "empty": "لا توجد أصناف. امسح الباركود للإضافة.",
-          "actions": {
-            "setQuantity": "تحديد الكمية",
-            "addNote": "إضافة ملاحظة"
-          }
-        },
-        "summary": {
-          "itemsTitle": "الأصناف",
-          "itemsSubtitle": "تفصيل الوحدات",
-          "weightTitle": "الوزن",
-          "weightSubtitle": "الوزن الإجمالي للتحويل",
-          "volumeTitle": "الحجم",
-          "volumeSubtitle": "الحجم الإجمالي للتحويل"
-        },
-        "create": {
-          "title": "إنشاء تحويل صادر",
-          "form": {
-            "fromWarehouse": "من المستودع",
-            "toWarehouse": "إلى المستودع",
-            "quantityLabel": "الكمية",
-            "lineNote": "ملاحظة السطر",
-            "loadingWarehouses": "جاري تحميل المستودعات...",
-            "selectPrefix": "اختر",
-            "warehouseFallback": "المستودع {id}"
-          },
-          "errors": {
-            "barcodeMissing": "الباركود {code} غير موجود ضمن العناصر المحفوظة",
-            "barcodeNoUom": "الباركود {code} غير مرتبط بوحدة صالحة",
-            "barcodeNoItem": "العنصر المرتبط بهذا الباركود غير متوفر دون اتصال",
-            "sourceRequired": "يرجى اختيار مستودع المصدر.",
-            "destinationRequired": "يرجى اختيار مستودع الوجهة.",
-            "sameWarehouse": "يجب أن يكون المستودعان مختلفين.",
-            "noItems": "أضف عنصراً واحداً على الأقل إلى التحويل.",
-            "openDraft": "تعذر فتح المسودة."
-          },
-          "dialogs": {
-            "setQuantity": "تعيين الكمية",
-            "addNote": "إضافة ملاحظة",
-            "set": "تأكيد"
-          },
-          "actions": {
-            "submit": "إرسال التحويل"
-          },
-          "barcode": {
-            "inputHint": "امسح أو أدخل الباركود",
-            "scanTooltip": "مسح الباركود"
-          },
-          "table": {
-            "headers": {
-              "number": "#",
-              "name": "الاسم",
-              "uom": "الوحدة",
-              "qty": "الكمية",
-              "actions": ""
-            },
-            "empty": "لا توجد عناصر بعد. امسح الباركود لإضافتها."
-          },
-          "menu": {
-            "increase": "زيادة الكمية",
-            "decrease": "تقليل الكمية",
-            "remove": "حذف السطر"
-          }
-        }
-      },
-      "quickActions": {
-        "newIn": {
-          "title": "وارد جديد",
-          "subtitle": "استلام مخزون"
-        },
-        "newOut": {
-          "title": "صادر جديد",
-          "subtitle": "إرسال مخزون"
-        }
-      },
-      "filters": {
-        "title": "تصفية",
-        "warehouseLabel": "المستودع",
-        "createdRange": "تاريخ الإنشاء",
-        "warehouseFallback": "المستودع",
-        "anyOption": "أي",
-        "loading": "جارٍ التحميل...",
-        "none": "لا توجد مستودعات"
-      },
-      "common": {
-        "noDate": "لا يوجد تاريخ بعد"
-      }
-    }
-  },
 
-  "sidebar": {
-    "userPlaceholder": "اسم المستخدم",
-    "menu": {
+    "fields": {
+      "name": "الاسم",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "confirmPassword": "تأكيد كلمة المرور",
+      "phoneNumber": "رقم الهاتف",
+      "address": "العنوان",
+      "city": "المدينة",
+      "country": "الدولة",
+      "postalCode": "الرمز البريدي",
+      "quantity": "الكمية",
+      "price": "السعر",
+      "search": "البحث"
+    },
+
+    "actions": {
+      "next": "التالي",
+      "send": "إرسال",
+      "save": "حفظ",
+      "cancel": "إلغاء",
+      "skip": "التخطي",
+      "delete": "حذف",
+      "confirm": "تأكيد",
+      "edit": "تعديل",
+      "add": "إضافة",
+      "remove": "إزالة",
+      "undo": "تراجع",
+      "submit": "إرسال",
+      "checkout": "الدفع",
+      "clear": "مسح",
+      "backToLogin": "العودة لتسجيل الدخول",
+      "callSupport": "اتصل بالدعم",
+      "whatsappMessage": "راسلنا على واتساب",
+      "emailUs": "راسلنا عبر البريد الإلكتروني",
+      "changeLanguage": "تغيير اللغة",
+      "detectLocation": "تحديد الموقع",
+      "location": "الموقع",
+      "viewOnMap": "عرض على الخريطة"
+    },
+
+    "confirmations": {
+      "delete": "هل أنت متأكد من الحذف؟",
+      "logout": "هل أنت متأكد من تسجيل الخروج؟",
+      "deleteAccount": "هل أنت متأكد من حذف الحساب؟ هذا الإجراء لا يمكن التراجع عنه.",
+      "resetPassword": "هل تريد إعادة تعيين كلمة المرور؟",
+      "update": "هل تريد التحديث؟",
+      "save": "هل تريد الحفظ؟",
+      "cancel": "هل تريد الإلغاء؟",
+      "submit": "هل تريد الإرسال؟",
+      "add": "هل تريد الإضافة؟",
+      "removeItem": "هل تريد إزالة هذا العنصر؟",
+      "checkout": "هل تريد إتمام الدفع؟",
+      "clear": "هل تريد المسح؟",
+      "clearCart": "هل انت متأكد من تفريغ السلة؟",
+      "clearWishlist": "هل انت متأكد من تفريغ المفضلة؟"
+    },
+
+    "validation": {
+      "required": "هذا الحقل مطلوب",
+      "emailRequired": "البريد الإلكتروني مطلوب",
+      "passwordRequired": "كلمة المرور مطلوبة",
+      "passwordTooShort": "يجب أن تكون كلمة المرور 6 أحرف على الأقل",
+      "confirmPasswordRequired": "يرجى تأكيد كلمة المرور",
+      "confirmPasswordMismatch": "كلمتا المرور غير متطابقتين",
+      "nameRequired": "الاسم مطلوب",
+      "phoneRequired": "رقم الهاتف مطلوب",
+      "addressRequired": "العنوان مطلوب",
+      "cityRequired": "المدينة مطلوبة",
+      "otpRequired": "رمز التحقق مطلوب",
+      "countryRequired": "البلد مطلوب",
+      "postalCodeRequired": "الرمز البريدي مطلوب",
+      "invalidPostalCode": "الرمز البريدي غير صالح",
+      "priceRequired": "السعر مطلوب",
+      "invalidPrice": "أدخل سعرًا صالحًا",
+      "quantityRequired": "الكمية مطلوبة",
+      "invalidOTP": "رمز التحقق غير صالح",
+      "invalidQuantity": "أدخل كمية صالحة",
+      "invalidName": "أدخل اسمًا صالحًا",
+      "invalidPhone": "أدخل رقم هاتف صالح",
+      "invalidEmail": "أدخل بريدًا إلكترونيًا صالحًا",
+      "invalidCredentials": "بيانات تسجيل الدخول غير صحيحة، حاول مرة أخرى."
+    },
+
+    "errors": {
+      "fetchUser": "تعذر جلب معلومات المستخدم.",
+      "deleteAccount": "تعذر حذف الحساب.",
+      "googleSignInAborted": "تم إلغاء تسجيل الدخول عبر Google.",
+      "googleSignInFailed": "فشل تسجيل الدخول عبر Google.",
+      "cleanError": "خطأ غير معروف",
+      "errorLoadingBanners": "خطأ في تحميل الصور الإعلانية.",
+      "invalidSocialLogin": "تعذر تسجيل الدخول، حاول لاحقًا.",
+      "retry": "إعادة المحاولة",
+      "noInternetConnection": "لا يوجد اتصال بالإنترنت.",
+      "login": "خطأ في تسجيل الدخول",
+      "logout": "خطأ في تسجيل الخروج",
+      "register": "خطأ في إنشاء الحساب",
+      "resetPassword": "خطأ في إعادة تعيين كلمة المرور",
+      "failedToLoadCategories": "فشل في تحميل الأقسام.",
+      "failedToLoadProducts": "فشل في تحميل المنتجات.",
+      "failedToLoadProductDetails": "تعذر تحميل تفاصيل المنتج، حاول مرة أخرى.",
+      "failedToLoadOrders": "فشل في تحميل الطلبات.",
+      "failedToLoadOrderDetails": "فشل في تحميل تفاصيل الطلب.",
+      "failedToLoadPopularProducts": "فشل في تحميل المنتجات الشائعة.",
+      "somethingWentWrong": "حدث خطأ ما، يرجى المحاولة مرة أخرى.",
+      "couldNotLaunchWhatsApp": "تعذر فتح تطبيق واتساب.",
+      "couldNotLaunchEmail": "تعذر فتح تطبيق البريد الإلكتروني.",
+      "couldNotLaunchPhone": "تعذر فتح تطبيق الاتصال.",
+      "couldNotOpenLink": "تعذر فتح الرابط.",
+      "mapUnavailable": "الخريطة غير متوفرة."
+    },
+
+    "success": {
+      "login": "تم تسجيل الدخول بنجاح",
+      "logout": "تم تسجيل الخروج بنجاح",
+      "register": "تم التسجيل بنجاح",
+      "resetPassword": "تم إعادة تعيين كلمة المرور بنجاح",
+      "update": "تم التحديث بنجاح",
+      "save": "تم الحفظ بنجاح",
+      "cancel": "تم الإلغاء بنجاح",
+      "delete": "تم الحذف بنجاح",
+      "add": "تمت الإضافة بنجاح",
+      "remove": "تمت الإزالة بنجاح",
+      "checkout": "تم الدفع بنجاح",
+      "clear": "تم المسح بنجاح",
+      "submit": "تم الإرسال بنجاح"
+    },
+
+    "navigation": {
       "home": "الرئيسية",
-      "inventory": "المخزون",
-      "purchases": "المشتريات",
-      "sales": "المبيعات",
-      "warehouses": "المستودعات",
-      "suppliers": "الموردون",
-      "customers": "العملاء",
-      "profile": "الملف الشخصي",
-      "settings": "الإعدادات",
-      "logout": "تسجيل الخروج",
-      "transfers": "التحويلات"
-    },
-    "sub": {
-      "main": "الرئيسي",
-      "items": "العناصر",
-      "counts": "الجرد",
-      "adjustments": "التسويات",
-      "invoices": "الفواتير",
+      "search": "بحث",
+      "categories": "الفئات",
+      "products": "المنتجات",
+      "wishlist": "المفضلة",
       "orders": "الطلبات",
-      "returns": "المرتجعات",
-      "in": "وارد",
-      "out": "صادر"
-    }
-  },
-
-  "fields": {
-    "name": "الاسم",
-    "email": "البريد الإلكتروني",
-    "password": "كلمة المرور",
-    "confirmPassword": "تأكيد كلمة المرور",
-    "phoneNumber": "رقم الهاتف",
-    "address": "العنوان",
-    "city": "المدينة",
-    "country": "الدولة",
-    "postalCode": "الرمز البريدي",
-    "quantity": "الكمية",
-    "price": "السعر",
-    "search": "بحث المنتجات"
-  },
-
-  "filters": {
-    "drawer": {
-      "title": "????? ???????",
-      "refresh": "?????",
-      "any": "????",
-      "actions": {
-        "apply": "?????",
-        "clear": "???"
-      }
+      "cart": "سلة التسوق",
+      "profile": "الملف الشخصي"
     },
-    "summary": {
-      "all": "????? ?????: ????",
-      "filtered": "????? ?????: {filters}",
-      "count": "{count} ????",
-      "separator": " | ",
-      "searchTerm": "\"{term}\""
+
+    "user": {
+      "greetingWithName": "هل أنت مستعد للتسوق؟",
+      "welcomeMessage": "مرحبًا بك في {appName}",
+      "goodMorning": "صباح الخير",
+      "goodAfternoon": "مساء الخير",
+      "goodEvening": "مساء الخير"
+    },
+
+    "profile": {
+      "accountSettings": "الحساب والإعدادات",
+      "ordersWishlist": "الطلبات والمفضلة",
+      "helpSupport": "الدعم والمساعدة",
+      "editProfile": "تعديل الملف الشخصي",
+      "signInPrompt": "قم بتسجيل الدخول للوصول إلى المزيد من الميزات",
+      "socialLinks": "روابط التواصل الاجتماعي",
+      "addresses": "العناوين",
+      "settings": "الإعدادات",
+      "changeLanguage": "تغيير اللغة",
+      "privacy-and-policy": "الخصوصية والسياسة",
+      "terms-conditions": "الشروط والأحكام"
+    },
+
+    "settings": {
+      "title": "الإعدادات",
+      "appSettings": "إعدادات التطبيق",
+      "notifications": "إشعارات التطبيق",
+      "appInfo": "معلومات التطبيق",
+      "language": "اللغة"
+    },
+
+    "ui": {
+      "yes": "نعم",
+      "no": "لا",
+      "success": "نجاح",
+      "error": "خطأ",
+      "warning": "تحذير",
+      "info": "معلومة",
+      "loading": "جار التحميل...",
+      "showMore": "عرض المزيد",
+      "showLess": "عرض أقل",
+      "gettingReady": "نقوم بتجهيز كل شيء لك...",
+      "isRequired": "مطلوب"
+    },
+
+    "backend": {
+      "Registered": "تم التسجيل",
+      "Confirmed": "تم التأكيد",
+      "Delivering": "قيد التوصيل",
+      "Received": "تم الاستلام",
+      "Canceled": "ألغيت",
+      "delivery": "رسوم التوصيل",
+      "Delivery": "دليفري"
+    },
+
+    "userHome":{
+      "which_service_prompt": "أي خدمة تود استخدامها؟"
+
+      
     }
-  },
 
-  "actions": {
-    "next": "التالي",
-    "send": "إرسال",
-    "save": "حفظ",
-    "skip": "تخطي",
-    "cancel": "إلغاء",
-    "delete": "حذف",
-    "confirm": "تأكيد",
-    "edit": "تعديل",
-    "add": "إضافة",
-    "remove": "إزالة",
-    "undo": "تراجع",
-    "submit": "إرسال",
-    "checkout": "إتمام الشراء",
-    "clear": "مسح",
-    "backToLogin": "العودة لتسجيل الدخول",
-    "callSupport": "الاتصال بالدعم",
-    "whatsappMessage": "مراسلة عبر واتساب",
-    "emailUs": "مراسلتنا عبر البريد",
-    "changeLanguage": "تغيير اللغة",
-    "detectLocation": "تحديد الموقع الحالي",
-    "location": "الموقع",
-    "viewOnMap": "عرض على الخريطة"
-  },
 
-  "confirmations": {
-    "delete": "هل تريد الحذف؟",
-    "logout": "هل تريد تسجيل الخروج؟",
-    "deleteAccount": "هل أنت متأكد أنك تريد حذف حسابك؟ لا يمكن التراجع عن هذا الإجراء.",
-    "resetPassword": "هل تريد إعادة تعيين كلمة المرور؟",
-    "update": "هل تريد التحديث؟",
-    "save": "هل تريد الحفظ؟",
-    "cancel": "هل تريد الإلغاء؟",
-    "submit": "هل تريد الإرسال؟",
-    "add": "هل تريد الإضافة؟",
-    "removeItem": "هل تريد إزالة هذا العنصر؟",
-    "checkout": "هل تريد إتمام عملية الشراء؟",
-    "clear": "هل تريد المسح؟",
-    "clearCart": "هل تريد مسح سلة التسوق؟",
-    "clearWishlist": "هل تريد مسح قائمة المفضلة؟"
-  },
-
-  "validation": {
-    "required": "هذا الحقل مطلوب",
-    "emailRequired": "البريد الإلكتروني مطلوب",
-    "passwordRequired": "كلمة المرور مطلوبة",
-    "passwordTooShort": "يجب أن تكون كلمة المرور 6 أحرف على الأقل",
-    "confirmPasswordRequired": "يرجى تأكيد كلمة المرور",
-    "confirmPasswordMismatch": "كلمتا المرور غير متطابقتين",
-    "nameRequired": "الاسم مطلوب",
-    "phoneRequired": "رقم الهاتف مطلوب",
-    "addressRequired": "العنوان مطلوب",
-    "cityRequired": "المدينة مطلوبة",
-    "otpRequired": "رمز التحقق مطلوب",
-    "countryRequired": "الدولة مطلوبة",
-    "postalCodeRequired": "الرمز البريدي مطلوب",
-    "invalidPostalCode": "الرمز البريدي غير صالح",
-    "priceRequired": "السعر مطلوب",
-    "invalidPrice": "أدخل سعرًا صالحًا",
-    "quantityRequired": "الكمية مطلوبة",
-    "invalidOTP": "رمز التحقق غير صحيح",
-    "invalidQuantity": "أدخل كمية صالحة",
-    "invalidName": "أدخل اسمًا صالحًا",
-    "invalidPhone": "أدخل رقم هاتف صالح",
-    "invalidEmail": "أدخل بريدًا إلكترونيًا صالحًا",
-    "invalidCredentials": "بيانات الدخول غير صحيحة"
-  },
-
-  "errors": {
-    "fetchUser": "تعذر جلب بيانات المستخدم.",
-    "deleteAccount": "تعذر حذف الحساب.",
-    "googleSignInAborted": "تم إلغاء تسجيل الدخول عبر جوجل.",
-    "googleSignInFailed": "فشل تسجيل الدخول عبر جوجل.",
-    "cleanError": "خطأ",
-    "errorLoadingBanners": "حدث خطأ أثناء تحميل البانرات.",
-    "invalidSocialLogin": "تعذر تسجيل الدخول، حاول لاحقًا.",
-    "retry": "إعادة المحاولة",
-    "noInternetConnection": "لا يوجد اتصال بالإنترنت.",
-    "login": "خطأ في تسجيل الدخول",
-    "logout": "خطأ في تسجيل الخروج",
-    "register": "خطأ في التسجيل",
-    "errUnauthorized": "يرجى تسجيل الدخول مرة أخرى.",
-    "errNetwork": "لا يوجد اتصال بالإنترنت.",
-    "errTimeout": "انتهت مهلة الطلب. حاول مرة أخرى.",
-    "errServer": "خطأ في الخادم. يرجى المحاولة لاحقًا.",
-    "errDb": "حدث خطأ في البيانات المحلية.",
-    "errUnknown": "حدث خطأ غير متوقع.",
-    "resetPassword": "خطأ في إعادة تعيين كلمة المرور",
-    "failedToLoadCategories": "تعذر تحميل الأقسام.",
-    "failedToLoadProducts": "تعذر تحميل المنتجات.",
-    "failedToLoadProductDetails": "تعذر تحميل بيانات المنتج. يرجى المحاولة مرة أخرى.",
-    "failedToLoadOrders": "تعذر تحميل الطلبات.",
-    "failedToLoadOrderDetails": "تعذر تحميل تفاصيل الطلب.",
-    "failedToLoadPopularProducts": "تعذر تحميل المنتجات الشائعة.",
-    "somethingWentWrong": "حدث خطأ ما، يرجى المحاولة مرة أخرى.",
-    "couldNotLaunchWhatsApp": "تعذر فتح واتساب.",
-    "couldNotLaunchEmail": "تعذر فتح تطبيق البريد.",
-    "couldNotLaunchPhone": "تعذر فتح شاشة الاتصال.",
-    "couldNotOpenLink": "تعذر فتح الرابط.",
-    "mapUnavailable": "الخريطة غير متاحة."
-  },
-
-  "success": {
-    "login": "تم تسجيل الدخول بنجاح",
-    "logout": "تم تسجيل الخروج بنجاح",
-    "register": "تم التسجيل بنجاح",
-    "resetPassword": "تمت إعادة تعيين كلمة المرور بنجاح",
-    "update": "تم التحديث بنجاح",
-    "save": "تم الحفظ بنجاح",
-    "cancel": "تم الإلغاء بنجاح",
-    "delete": "تم الحذف بنجاح",
-    "add": "تمت الإضافة بنجاح",
-    "remove": "تمت الإزالة بنجاح",
-    "checkout": "تم إتمام عملية الشراء بنجاح",
-    "clear": "تم المسح بنجاح",
-    "submit": "تم الإرسال بنجاح"
-  },
-
-  "navigation": {
-    "home": "الرئيسية",
-    "search": "بحث",
-    "categories": "الفئات",
-    "products": "المنتجات",
-    "wishlist": "المفضلة",
-    "orders": "الطلبات",
-    "cart": "سلة التسوق",
-    "profile": "الملف الشخصي"
-  },
-
-  "user": {
-    "greetingWithName": "جاهز للتسوق؟",
-    "welcomeMessage": "مرحبًا بك في {appName}!",
-    "goodMorning": "صباح الخير",
-    "goodAfternoon": "مساء الخير",
-    "goodEvening": "مساء الخير"
-  },
-
-  "profile": {
-    "accountSettings": "الحساب والإعدادات",
-    "ordersWishlist": "الطلبات والمفضلة",
-    "helpSupport": "الدعم والمساعدة",
-    "editProfile": "تعديل الملف الشخصي",
-    "signInPrompt": "سجّل الدخول للوصول إلى المزيد من الميزات",
-    "socialLinks": "روابط التواصل",
-    "addresses": "العناوين",
-    "settings": "الإعدادات",
-    "changeLanguage": "تغيير اللغة",
-    "privacy-and-policy": "الخصوصية والسياسة",
-    "terms-conditions": "الشروط والأحكام"
-  },
-
-  "settings": {
-    "title": "الإعدادات",
-    "appSettings": "إعدادات التطبيق",
-    "notifications": "إعدادات الإشعارات",
-    "appInfo": "معلومات التطبيق",
-    "language": "اللغة"
-  },
-
-  "ui": {
-    "yes": "نعم",
-    "no": "لا",
-    "success": "نجاح",
-    "error": "خطأ",
-    "warning": "تحذير",
-    "info": "معلومة",
-    "loading": "جارٍ التحميل...",
-    "showMore": "عرض المزيد",
-    "showLess": "عرض أقل",
-    "gettingReady": "نقوم بتجهيز كل شيء لك...",
-    "isRequired": "مطلوب"
-  },
-
-  "backend": {
-    "Registered": "مسجل",
-    "Confirmed": "مؤكد",
-    "Delivering": "قيد التوصيل",
-    "Received": "تم الاستلام",
-    "Canceled": "ملغي",
-    "delivery": "التوصيل",
-    "Delivery": "توصيل"
-  }
 }

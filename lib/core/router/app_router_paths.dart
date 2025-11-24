@@ -3,6 +3,7 @@ class RouterPaths {
   static const onboarding = '/onboarding';
   static const login = '/login';
   static const register = '/register';
+  static const registerProvider = '/register/provider';
 
   static const home = '/home';
   static const profile = '/profile';

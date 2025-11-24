@@ -4,6 +4,7 @@ import '/shared/services/cache_manager.dart';
 import '../models/provider.dart';
 import '../models/provider_mappers.dart';
 import '../remote/providers_remote_source.dart';
+import 'package:dio/dio.dart';
 
 class ProvidersRepository {
   final ProvidersDao providersDao;
@@ -46,6 +47,19 @@ class ProvidersRepository {
     final row = await providersDao.getById(id);
     return row == null ? null : dbProviderToDomain(row);
   }
+
+  Future<void> registerProvider({
+    required Map<String, dynamic> payload,
+    List<MultipartFile>? workImages,
+    MultipartFile? profileImage,
+    MultipartFile? portfolioFile,
+  }) =>
+      remote.registerProvider(
+        payload: payload,
+        workImages: workImages,
+        profileImage: profileImage,
+        portfolioFile: portfolioFile,
+      );
 
   String? _maxString(String? current, String? candidate) {
     if (candidate == null) return current;
