@@ -1,0 +1,636 @@
+{
+  "auth": {
+    "welcome": {
+      "title": "A smoother shopping experience, a better life",
+      "subtitle": "Save your time, shop effortlessly, and enjoy fast home delivery!",
+      "cta": "Ready to Fill Your Cart?",
+      "ctaDescription": "Get Started with Your Account",
+      "signupMessage": "Sign up now and enjoy a seamless experience with personalized features.",
+      "signinMessage": "Sign in to continue your shopping experience.",
+      "createAnAccount": "Create an Account"
+
+    },
+    "login": {
+      "title": "Welcome Back!",
+      "forgotPassword": "Forgot Password?",
+      "resetPassword": "Reset Password",
+      "enterEmail": "Enter your email address to reset your password",
+      "resetLinkSent": "Password reset link sent to your email",
+      "newPassword": "New Password",
+      "confirmNewPassword": "Confirm New Password",
+      "emailTab": "Email",
+      "phoneTab": "Phone"
+    },
+    "buttons": {
+      "login": "Log In",
+      "register": "Register",
+      "signUp": "Sign Up",
+      "createAccount": "Create Account",
+      "logout": "Logout",
+      "deleteAccount": "Delete Account",
+      "continueAsGuest": "Continue as Guest",
+      "signInWithGoogle": "Sign In with Google"
+    },
+    "labels": {
+      "haveAccount": "Already have an account?",
+      "dontHaveAccount": "Don't have an account?",
+      "rememberMe": "Remember me",
+      "guest": "Guest User"
+    },
+    "terms": {
+      "text": "By using this app, you agree to our",
+      "link": "Terms and Conditions"
+    }
+  },
+
+
+  "home": {
+    "cards": {
+      "inventory": {
+        "title": "Inventory",
+        "subtitle": "Manage stock, transfers, and adjustments",
+        "infoModules": "5 modules",
+        "infoUpdated": "Updated 2h ago"
+      },
+      "purchases": {
+        "title": "Purchases",
+        "subtitle": "Orders, invoices, and supplier management",
+        "infoModules": "4 modules",
+        "infoUpdated": "Updated 5h ago"
+      },
+      "sales": {
+        "title": "Sales",
+        "subtitle": "Customer orders, returns, and invoices",
+        "infoModules": "4 modules",
+        "infoUpdated": "Updated 1h ago"
+      }
+    }
+  },
+
+  "inventory": {
+    "main": {
+      "itemsLabel": "Items:",
+      "addItem": "Add item"
+    },
+    "items": {
+      "title": "Items",
+      "searchHint": "Search by name, code...",
+      "filters": {
+        "drawerTitle": "Filter Items",
+        "brand": "Brand",
+        "category": "Category",
+        "inStock": "In Stock Only",
+        "minPrice": "Min Price",
+        "minPriceHint": "e.g. 10",
+        "createdBetween": "Created Between"
+      },
+      "empty": {
+        "title": "No items found",
+        "message": "Try adjusting your filters or syncing again.",
+        "clearFilters": "Clear Filters"
+      }
+    },
+    "transfers": {
+      "title": "Transfers",
+      "period": {
+        "day": "Day",
+        "week": "Week",
+        "month": "Month",
+        "year": "Year"
+      },
+      "in": {
+        "title": "Transfers In"
+      },
+      "out": {
+        "title": "Transfers Out",
+        "searchHint": "Search by code, notes...",
+        "tabs": {
+          "transfers": "Transfers",
+          "drafts": "Drafts"
+        },
+        "summaryAll": "All Transfers Out",
+        "empty": {
+          "errorTitle": "Error loading transfers",
+          "title": "No transfers yet",
+          "message": "Create your first transfer out to see it listed here."
+        },
+        "drafts": {
+          "empty": {
+            "title": "No drafts yet",
+            "message": "Start a new transfer to see it listed here as a draft."
+          },
+          "cardTitlePrefix": "Draft",
+          "deleteTooltip": "Delete draft",
+          "itemsLabel": "Items",
+          "continue": "Continue",
+          "fromLabel": "From",
+          "toLabel": "To",
+          "dateLabel": "Date",
+          "noDate": "No date yet"
+        },
+        "list": {
+          "empty": {
+            "title": "No transfers",
+            "message": "No transfer out records match your filters or search."
+          },
+          "transferLabel": "Transfer",
+          "dateLabel": "Transfer Date"
+        },
+        "table": {
+          "headers": {
+            "name": "Name",
+            "barcode": "Barcode",
+            "uom": "UOM",
+            "qty": "Qty",
+            "actions": ""
+          },
+          "empty": "No items yet. Scan barcodes to add.",
+          "actions": {
+            "setQuantity": "Set quantity",
+            "addNote": "Add note"
+          }
+        },
+        "summary": {
+          "itemsTitle": "Items",
+          "itemsSubtitle": "UOM breakdown",
+          "weightTitle": "Weight",
+          "weightSubtitle": "Total transfer weight",
+          "volumeTitle": "Volume",
+          "volumeSubtitle": "Total transfer volume"
+        },
+        "create": {
+          "title": "Create Transfer Out",
+          "form": {
+            "fromWarehouse": "From Warehouse",
+            "toWarehouse": "To Warehouse",
+            "quantityLabel": "Quantity",
+            "lineNote": "Line Note",
+            "unit": "Unit",
+            "loadingWarehouses": "Loading warehouses...",
+            "selectPrefix": "Select",
+            "warehouseFallback": "Warehouse {id}"
+          },
+          "errors": {
+            "barcodeMissing": "Barcode {code} not found in local items",
+            "barcodeNoUom": "Barcode {code} is not linked to a valid unit",
+            "barcodeNoItem": "Item for this barcode is not available offline",
+            "noUomsAvailable": "No UOMs available for this item",
+            "sourceRequired": "Select the source warehouse.",
+            "destinationRequired": "Select the destination warehouse.",
+            "sameWarehouse": "Source and destination must be different warehouses.",
+            "noItems": "Add at least one item to the transfer.",
+            "openDraft": "Failed to open draft."
+          },
+          "dialogs": {
+            "setQuantity": "Set Quantity",
+            "addNote": "Add Note",
+            "changeUom": "Change UOM",
+            "set": "Set",
+            "confirmDelete": "Confirm Delete",
+            "deleteMessage": "Are you sure you want to remove {item} from this transfer?"
+          },
+          "actions": {
+            "submit": "Submit Transfer"
+          },
+        "barcode": {
+          "inputHint": "Scan or enter barcode",
+          "scanTooltip": "Scan barcode"
+        },
+        "table": {
+          "headers": {
+            "number": "#",
+            "name": "Name",
+            "uom": "UOM",
+            "qty": "Qty",
+            "actions": ""
+          },
+          "empty": "No items yet. Scan barcodes to add.",
+          "actions": {
+            "setQuantity": "Set Quantity",
+            "changeUom": "Change UOM",
+            "addNote": "Add Note"
+          }
+        },
+        "menu": {
+          "increase": "Increase qty",
+          "decrease": "Decrease qty",
+            "remove": "Remove row"
+          }
+        }
+      },
+      "quickActions": {
+        "newIn": {
+          "title": "New In",
+          "subtitle": "Receive inventory"
+        },
+        "newOut": {
+          "title": "New Out",
+          "subtitle": "Send inventory"
+        }
+      },
+      "filters": {
+        "title": "Filter",
+        "warehouseLabel": "Warehouse",
+        "createdRange": "Creation Date",
+        "warehouseFallback": "Warehouse",
+        "anyOption": "Any",
+        "loading": "Loading...",
+        "none": "No warehouses"
+      },
+      "common": {
+        "noDate": "No date yet"
+      }
+    }
+  },
+
+  "sidebar": {
+    "userPlaceholder": "User Name",
+    "menu": {
+      "home": "Home",
+      "inventory": "Inventory",
+      "purchases": "Purchases",
+      "sales": "Sales",
+      "warehouses": "Warehouses",
+      "suppliers": "Suppliers",
+      "customers": "Customers",
+      "profile": "Profile",
+      "settings": "Settings",
+      "logout": "Logout",
+      "transfers": "Transfers"
+    },
+    "sub": {
+      "main": "Main",
+      "items": "Items",
+      "counts": "Counts",
+      "adjustments": "Adjustments",
+      "invoices": "Invoices",
+      "receptions": "Receptions",
+      "orders": "Orders",
+      "returns": "Returns",
+      "in": "In",
+      "out": "Out"
+    }
+  },
+  "fields": {
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "phoneNumber": "Phone Number",
+    "address": "Address",
+    "city": "City",
+    "country": "Country",
+    "postalCode": "Postal Code",
+    "quantity": "Quantity",
+    "price": "Price",
+    "search": "Search products"
+  },
+
+  "filters": {
+    "drawer": {
+      "title": "Filters",
+      "refresh": "Refresh",
+      "any": "Any",
+      "actions": {
+        "apply": "Apply",
+        "clear": "Clear"
+      }
+    },
+    "summary": {
+      "all": "Search Results: All",
+      "filtered": "Search Results: {filters}",
+      "count": "{count} items",
+      "separator": " | ",
+      "searchTerm": "\"{term}\""
+    }
+  },
+
+  "actions": {
+    "refresh": "Refresh",
+    "saveDraft": "Save draft",
+    "next": "Next",
+    "send": "Send",
+    "save": "Save",
+    "skip": "Skip",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "confirm": "Confirm",
+    "edit": "Edit",
+    "add": "Add",
+    "remove": "Remove",
+    "undo": "Undo",
+    "submit": "Submit",
+    "checkout": "Checkout",
+    "clear": "Clear",
+    "backToLogin": "Back to Login",
+    "callSupport": "Call Support",
+    "whatsappMessage": "Message on WhatsApp",
+    "emailUs": "Email Us",
+    "changeLanguage": "Change Language",
+    "detectLocation": "Detect Current Location",
+    "location": "Location",
+    "viewOnMap": "View on Map"
+  },
+
+  "confirmations": {
+    "delete": "Are you sure you want to delete?",
+    "logout": "Are you sure you want to logout?",
+    "deleteAccount": "Are you sure you want to delete your account? This action cannot be undone.",
+    "resetPassword": "Are you sure you want to reset your password?",
+    "update": "Are you sure you want to update?",
+    "save": "Are you sure you want to save?",
+    "cancel": "Are you sure you want to cancel?",
+    "submit": "Are you sure you want to submit?",
+    "add": "Are you sure you want to add?",
+    "removeItem": "Remove this item?",
+    "checkout": "Are you sure you want to checkout?",
+    "clear": "Are you sure you want to clear?",
+    "clearCart": "Are you sure you want to clear the cart?",
+    "clearWishlist": "Are you sure you want to clear the wishlist?"
+  },
+
+  "validation": {
+      "required": "This field is required",
+      "emailRequired": "Email is required",
+      "passwordRequired": "Password is required",
+      "passwordTooShort": "Password must be at least 6 characters",
+      "confirmPasswordRequired": "Please confirm your password",
+      "confirmPasswordMismatch": "Passwords do not match",
+      "nameRequired": "Name is required",
+      "phoneRequired": "Phone number is required",
+      "addressRequired": "Address is required",
+      "cityRequired": "City is required",
+      "otpRequired": "OTP is required",
+      "countryRequired": "Country is required",
+      "postalCodeRequired": "Postal code is required",
+      "invalidPostalCode": "Invalid postal code",
+      "priceRequired": "Price is required",
+      "invalidPrice": "Enter a valid price",
+      "quantityRequired": "Quantity is required",
+      "invalidOTP": "Invalid OTP",
+      "invalidQuantity": "Enter a valid quantity",
+      "invalidName": "Enter a valid name",
+      "invalidPhone": "Enter a valid phone number",
+      "invalidEmail": "Enter a valid email address",
+      "invalidCredentials": "Invalid credentials, please try again"
+  },
+
+  "errors": {
+    "fetchUser": "Couldn't fetch user.",
+    "deleteAccount": "Couldn't delete account.",
+    "googleSignInAborted": "Google sign-in was aborted.",
+    "googleSignInFailed": "Google sign-in failed.",
+    "cleanError": "Clean Error",
+    "errorLoadingBanners": "Error loading banners.",
+    "invalidSocialLogin": "Couldn't sign in, please try again later.",
+    "retry": "Retry",
+    "noInternetConnection": "No internet connection.",
+    "login": "Login error",
+    "logout": "Logout error",
+    "register": "Register error",
+    "errUnauthorized": "Please log in again.",
+    "errNetwork": "No internet connection.",
+    "errTimeout": "The request timed out. Try again.",
+    "errServer": "Server error. Please try later.",
+    "errDb": "A local data error occurred.",
+    "errUnknown": "Something went wrong.",
+    "resetPassword": "Reset password error",
+    "failedToLoadCategories": "Failed to load categories.",
+    "failedToLoadProducts": "Failed to load products.",
+    "failedToLoadProductDetails": "Couldn't load product. Please try again.",
+    "failedToLoadOrders": "Failed to load orders.",
+    "failedToLoadOrderDetails": "Failed to load order details.",
+    "failedToLoadPopularProducts": "Failed to load popular products.",
+    "somethingWentWrong": "Something went wrong, please try again.",
+    "couldNotLaunchWhatsApp": "Could not open WhatsApp.",
+    "couldNotLaunchEmail": "Could not open email app.",
+    "couldNotLaunchPhone": "Could not open phone dialer.",
+    "couldNotOpenLink": "Could not open the link.",
+    "mapUnavailable": "Map is unavailable."
+  },
+
+  "success": {
+    "login": "Login Success",
+    "logout": "Logout Success",
+    "register": "Register Success",
+    "resetPassword": "Reset Password Success",
+    "update": "Update Success",
+    "save": "Save Success",
+    "cancel": "Cancel Success",
+    "delete": "Delete Success",
+    "add": "Add Success",
+    "remove": "Remove Success",
+    "checkout": "Checkout Success",
+    "clear": "Clear Success",
+    "submit": "Submit Success"
+  },
+
+  "navigation": {
+    "home": "Home",
+    "search": "Search",
+    "categories": "Categories",
+    "products": "Products",
+    "wishlist": "Wishlist",
+    "orders": "Orders",
+    "cart": "Cart",
+    "profile": "Profile"
+  },
+
+  "user": {
+    "greetingWithName": "Ready to shop?",
+    "welcomeMessage": "Welcome to {appName}!",
+    "goodMorning": "Good morning",
+    "goodAfternoon": "Good afternoon",
+    "goodEvening": "Good evening"
+  },
+
+  "profile": {
+    "accountSettings": "Account & Settings",
+    "ordersWishlist": "Orders & Wishlist",
+    "helpSupport": "Help & Support",
+    "editProfile": "Edit Profile",
+    "signInPrompt": "Sign in to access more features",
+    "socialLinks": "Social Links",
+    "addresses": "Addresses",
+    "settings": "Settings",
+    "changeLanguage": "Change Language",
+    "privacy-and-policy": "Privacy & Policy",
+    "terms-conditions": "Terms & Conditions"
+  },
+
+  "settings": {
+    "title": "Settings",
+    "appSettings": "App Settings",
+    "notifications": "Notification Settings",
+    "appInfo": "App Info",
+    "language": "Language"
+  },
+
+  "ui": {
+    "yes": "Yes",
+    "no": "No",
+    "success": "Success",
+    "error": "Error",
+    "warning": "Warning",
+    "info": "Info",
+    "loading": "Loading...",
+    "showMore": "Show More",
+    "showLess": "Show Less",
+    "gettingReady": "Getting things ready for you...",
+    "isRequired": "is required"
+  },
+
+  "common": {
+    "period": {
+      "today": "Today",
+      "week": "Week",
+      "month": "Month",
+      "year": "Year"
+    }
+  },
+
+  "transactions": {
+    "tabs": {
+      "list": "List",
+      "drafts": "Drafts"
+    },
+    "summary": {
+      "all": "All transactions",
+      "filter": "Filtering for \"{term}\"",
+      "subtitle": "Track documents and drafts"
+    },
+    "labels": {
+      "unknownSupplier": "Unknown supplier",
+      "rows": "Rows",
+      "status": "Status",
+      "items": "Items",
+      "quantity": "Quantity",
+      "unit": "Unit",
+      "totalQty": "Total Qty",
+      "totalCost": "Total Cost"
+    },
+    "fields": {
+      "receiptDate": "Receipt date",
+      "warehouse": "Warehouse",
+      "supplier": "Supplier",
+      "memo": "Memo",
+      "items": "Items"
+    },
+    "drafts": {
+      "continue": "Continue"
+    }
+  },
+
+  "purchase": {
+    "dashboard": {
+      "title": "Purchases Dashboard",
+      "totalOrders": "Total Orders",
+      "pendingReceptions": "Pending Receptions",
+      "suppliers": "Suppliers",
+      "recentOrders": "Recent Orders",
+      "recentReceptions": "Recent Receptions",
+      "tiles": {
+        "receptions": {
+          "title": "Receptions",
+          "subtitle": "Create or continue receiving goods"
+        },
+        "invoices": {
+          "title": "Invoices",
+          "subtitle": "Track vendor invoices and pricing"
+        }
+      },
+      "overview": {
+        "title": "Purchase Overview",
+        "subtitle": "Track invoices vs receptions",
+        "receptions": "Receptions",
+        "invoices": "Invoices"
+      },
+      "split": {
+        "title": "Documents"
+      },
+      "summary": {
+        "receptions": "Receptions",
+        "invoices": "Invoices",
+        "drafts": "Drafts"
+      },
+      "latestReceptions": "Latest Receptions",
+      "latestReceptionsEmpty": "Start receiving goods to see them here.",
+      "latestInvoices": "Latest Purchase Invoices",
+      "latestInvoicesEmpty": "No invoices have been synced yet.",
+      "invoiceFallback": "Invoice {id}",
+      "supplierPending": "Supplier pending",
+      "comingSoon": "Invoices screen is coming soon"
+    },
+    "receptions": {
+      "title": "Receptions",
+      "searchHint": "Search receptions",
+      "empty": {
+        "title": "No receptions yet",
+        "message": "Start receiving goods to see documents here.",
+        "errorTitle": "Error loading receptions"
+      },
+      "drafts": {
+        "empty": {
+          "title": "No drafts yet",
+          "message": "Create a reception draft to see it listed."
+        },
+        "cardTitle": "Draft",
+        "deleteTooltip": "Delete draft",
+        "itemsLabel": "Items",
+        "continue": "Continue",
+        "cardWarehouseLabel": "Warehouse #{id}",
+        "cardNoWarehouse": "No warehouse selected",
+        "cardDate": "Date: {date}"
+      },
+      "form": {
+        "title": "Reception Draft",
+        "draftLabel": "Draft {id}",
+        "rowsPlaceholder": "No items yet. Add lines to see them here.",
+        "submitButton": "Submit Reception",
+        "loadError": "Failed to open draft",
+        "invoiceLabel": "Purchase Invoice",
+        "invoiceHint": "Select invoice",
+        "noteHint": "Add note"
+      },
+      "table": {
+        "headers": {
+          "number": "#",
+          "name": "Item",
+          "uom": "UOM",
+          "qty": "Qty",
+          "actions": ""
+        },
+        "empty": "No reception rows yet. Scan or add items to get started.",
+        "actions": {
+          "setQuantity": "Set quantity",
+          "increase": "Increase qty",
+          "decrease": "Decrease qty"
+        }
+      },
+      "menu": {
+        "setQuantity": "Set quantity",
+        "increase": "Increase qty",
+        "decrease": "Decrease qty",
+        "remove": "Remove row",
+        "set": "Set"
+      },
+      "view": {
+        "title": "View Reception",
+        "items": "Items",
+        "noItems": "No items yet",
+        "noData": "No reception data",
+        "warehouse": "Warehouse",
+        "receiptLabel": "REC #{number}"
+      }
+    }
+  },
+  "backend": {
+    "Registered": "Registered",
+    "Confirmed": "Confirmed",
+    "Delivering": "Delivering",
+    "Received": "Received",
+    "Canceled": "Canceled",
+    "delivery": "Delivery",
+    "Delivery": "Delivery"
+  }
+}
