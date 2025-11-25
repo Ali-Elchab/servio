@@ -21,7 +21,7 @@ class ApiService {
             receiveTimeout: const Duration(seconds: 30),
             sendTimeout: const Duration(seconds: 30),
             contentType: 'application/json',
-            headers: {'Accept': 'application/json', 'X-Api-Key': AppConstants.xApiKey},
+            headers: {'Accept': 'application/json', 'servioKey': AppConstants.servioKey},
           ),
         ) {
     dio.interceptors.add(_ConnectivityGuard(_net));
@@ -31,7 +31,7 @@ class ApiService {
         onRequest: (options, handler) async {
           final token = _cache.token;
           if (_needsApiKey(options.path)) {
-            options.headers['X-Api-Key'] = AppConstants.xApiKey; // or from secure storage/env
+            options.headers['servio-key'] = AppConstants.servioKey; // or from secure storage/env
           }
           if (token != null && token.isNotEmpty) {
             options.headers['Authorization'] = 'Bearer $token';
@@ -106,7 +106,8 @@ class ApiService {
     CancelToken? cancelToken,
   }) async {
     try {
-      await dio.download(url, savePath, queryParameters: query, onReceiveProgress: onReceiveProgress, cancelToken: cancelToken);
+      await dio.download(url, savePath,
+          queryParameters: query, onReceiveProgress: onReceiveProgress, cancelToken: cancelToken);
     } on DioException catch (e) {
       _logError('DOWNLOAD', url, e);
       throw e.toAppException();

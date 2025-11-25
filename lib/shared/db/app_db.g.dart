@@ -305,706 +305,6 @@ class UsersCompanion extends UpdateCompanion<DbUser> {
   }
 }
 
-class $CompaniesTable extends Companies
-    with TableInfo<$CompaniesTable, DbCompany> {
-  @override
-  final GeneratedDatabase attachedDatabase;
-  final String? _alias;
-  $CompaniesTable(this.attachedDatabase, [this._alias]);
-  static const VerificationMeta _idMeta = const VerificationMeta('id');
-  @override
-  late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
-      type: DriftSqlType.int, requiredDuringInsert: false);
-  static const VerificationMeta _uuidMeta = const VerificationMeta('uuid');
-  @override
-  late final GeneratedColumn<String> uuid = GeneratedColumn<String>(
-      'uuid', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
-  static const VerificationMeta _nameMeta = const VerificationMeta('name');
-  @override
-  late final GeneratedColumn<String> name = GeneratedColumn<String>(
-      'name', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
-  static const VerificationMeta _logoMeta = const VerificationMeta('logo');
-  @override
-  late final GeneratedColumn<String> logo = GeneratedColumn<String>(
-      'logo', aliasedName, true,
-      type: DriftSqlType.string, requiredDuringInsert: false);
-  static const VerificationMeta _ownerNameMeta =
-      const VerificationMeta('ownerName');
-  @override
-  late final GeneratedColumn<String> ownerName = GeneratedColumn<String>(
-      'owner_name', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
-  static const VerificationMeta _ownerEmailMeta =
-      const VerificationMeta('ownerEmail');
-  @override
-  late final GeneratedColumn<String> ownerEmail = GeneratedColumn<String>(
-      'owner_email', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
-  static const VerificationMeta _planMeta = const VerificationMeta('plan');
-  @override
-  late final GeneratedColumn<String> plan = GeneratedColumn<String>(
-      'plan', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
-  static const VerificationMeta _subscriptionStatusMeta =
-      const VerificationMeta('subscriptionStatus');
-  @override
-  late final GeneratedColumn<String> subscriptionStatus =
-      GeneratedColumn<String>('subscription_status', aliasedName, false,
-          type: DriftSqlType.string, requiredDuringInsert: true);
-  static const VerificationMeta _currentCycleEndMeta =
-      const VerificationMeta('currentCycleEnd');
-  @override
-  late final GeneratedColumn<DateTime> currentCycleEnd =
-      GeneratedColumn<DateTime>('current_cycle_end', aliasedName, true,
-          type: DriftSqlType.dateTime, requiredDuringInsert: false);
-  @override
-  List<GeneratedColumn> get $columns => [
-        id,
-        uuid,
-        name,
-        logo,
-        ownerName,
-        ownerEmail,
-        plan,
-        subscriptionStatus,
-        currentCycleEnd
-      ];
-  @override
-  String get aliasedName => _alias ?? actualTableName;
-  @override
-  String get actualTableName => $name;
-  static const String $name = 'companies';
-  @override
-  VerificationContext validateIntegrity(Insertable<DbCompany> instance,
-      {bool isInserting = false}) {
-    final context = VerificationContext();
-    final data = instance.toColumns(true);
-    if (data.containsKey('id')) {
-      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
-    }
-    if (data.containsKey('uuid')) {
-      context.handle(
-          _uuidMeta, uuid.isAcceptableOrUnknown(data['uuid']!, _uuidMeta));
-    } else if (isInserting) {
-      context.missing(_uuidMeta);
-    }
-    if (data.containsKey('name')) {
-      context.handle(
-          _nameMeta, name.isAcceptableOrUnknown(data['name']!, _nameMeta));
-    } else if (isInserting) {
-      context.missing(_nameMeta);
-    }
-    if (data.containsKey('logo')) {
-      context.handle(
-          _logoMeta, logo.isAcceptableOrUnknown(data['logo']!, _logoMeta));
-    }
-    if (data.containsKey('owner_name')) {
-      context.handle(_ownerNameMeta,
-          ownerName.isAcceptableOrUnknown(data['owner_name']!, _ownerNameMeta));
-    } else if (isInserting) {
-      context.missing(_ownerNameMeta);
-    }
-    if (data.containsKey('owner_email')) {
-      context.handle(
-          _ownerEmailMeta,
-          ownerEmail.isAcceptableOrUnknown(
-              data['owner_email']!, _ownerEmailMeta));
-    } else if (isInserting) {
-      context.missing(_ownerEmailMeta);
-    }
-    if (data.containsKey('plan')) {
-      context.handle(
-          _planMeta, plan.isAcceptableOrUnknown(data['plan']!, _planMeta));
-    } else if (isInserting) {
-      context.missing(_planMeta);
-    }
-    if (data.containsKey('subscription_status')) {
-      context.handle(
-          _subscriptionStatusMeta,
-          subscriptionStatus.isAcceptableOrUnknown(
-              data['subscription_status']!, _subscriptionStatusMeta));
-    } else if (isInserting) {
-      context.missing(_subscriptionStatusMeta);
-    }
-    if (data.containsKey('current_cycle_end')) {
-      context.handle(
-          _currentCycleEndMeta,
-          currentCycleEnd.isAcceptableOrUnknown(
-              data['current_cycle_end']!, _currentCycleEndMeta));
-    }
-    return context;
-  }
-
-  @override
-  Set<GeneratedColumn> get $primaryKey => {id};
-  @override
-  DbCompany map(Map<String, dynamic> data, {String? tablePrefix}) {
-    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
-    return DbCompany(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
-      uuid: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}uuid'])!,
-      name: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}name'])!,
-      logo: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}logo']),
-      ownerName: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}owner_name'])!,
-      ownerEmail: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}owner_email'])!,
-      plan: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}plan'])!,
-      subscriptionStatus: attachedDatabase.typeMapping.read(
-          DriftSqlType.string, data['${effectivePrefix}subscription_status'])!,
-      currentCycleEnd: attachedDatabase.typeMapping.read(
-          DriftSqlType.dateTime, data['${effectivePrefix}current_cycle_end']),
-    );
-  }
-
-  @override
-  $CompaniesTable createAlias(String alias) {
-    return $CompaniesTable(attachedDatabase, alias);
-  }
-}
-
-class DbCompany extends DataClass implements Insertable<DbCompany> {
-  final int id;
-  final String uuid;
-  final String name;
-  final String? logo;
-  final String ownerName;
-  final String ownerEmail;
-  final String plan;
-  final String subscriptionStatus;
-  final DateTime? currentCycleEnd;
-  const DbCompany(
-      {required this.id,
-      required this.uuid,
-      required this.name,
-      this.logo,
-      required this.ownerName,
-      required this.ownerEmail,
-      required this.plan,
-      required this.subscriptionStatus,
-      this.currentCycleEnd});
-  @override
-  Map<String, Expression> toColumns(bool nullToAbsent) {
-    final map = <String, Expression>{};
-    map['id'] = Variable<int>(id);
-    map['uuid'] = Variable<String>(uuid);
-    map['name'] = Variable<String>(name);
-    if (!nullToAbsent || logo != null) {
-      map['logo'] = Variable<String>(logo);
-    }
-    map['owner_name'] = Variable<String>(ownerName);
-    map['owner_email'] = Variable<String>(ownerEmail);
-    map['plan'] = Variable<String>(plan);
-    map['subscription_status'] = Variable<String>(subscriptionStatus);
-    if (!nullToAbsent || currentCycleEnd != null) {
-      map['current_cycle_end'] = Variable<DateTime>(currentCycleEnd);
-    }
-    return map;
-  }
-
-  CompaniesCompanion toCompanion(bool nullToAbsent) {
-    return CompaniesCompanion(
-      id: Value(id),
-      uuid: Value(uuid),
-      name: Value(name),
-      logo: logo == null && nullToAbsent ? const Value.absent() : Value(logo),
-      ownerName: Value(ownerName),
-      ownerEmail: Value(ownerEmail),
-      plan: Value(plan),
-      subscriptionStatus: Value(subscriptionStatus),
-      currentCycleEnd: currentCycleEnd == null && nullToAbsent
-          ? const Value.absent()
-          : Value(currentCycleEnd),
-    );
-  }
-
-  factory DbCompany.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
-    serializer ??= driftRuntimeOptions.defaultSerializer;
-    return DbCompany(
-      id: serializer.fromJson<int>(json['id']),
-      uuid: serializer.fromJson<String>(json['uuid']),
-      name: serializer.fromJson<String>(json['name']),
-      logo: serializer.fromJson<String?>(json['logo']),
-      ownerName: serializer.fromJson<String>(json['ownerName']),
-      ownerEmail: serializer.fromJson<String>(json['ownerEmail']),
-      plan: serializer.fromJson<String>(json['plan']),
-      subscriptionStatus:
-          serializer.fromJson<String>(json['subscriptionStatus']),
-      currentCycleEnd: serializer.fromJson<DateTime?>(json['currentCycleEnd']),
-    );
-  }
-  @override
-  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
-    serializer ??= driftRuntimeOptions.defaultSerializer;
-    return <String, dynamic>{
-      'id': serializer.toJson<int>(id),
-      'uuid': serializer.toJson<String>(uuid),
-      'name': serializer.toJson<String>(name),
-      'logo': serializer.toJson<String?>(logo),
-      'ownerName': serializer.toJson<String>(ownerName),
-      'ownerEmail': serializer.toJson<String>(ownerEmail),
-      'plan': serializer.toJson<String>(plan),
-      'subscriptionStatus': serializer.toJson<String>(subscriptionStatus),
-      'currentCycleEnd': serializer.toJson<DateTime?>(currentCycleEnd),
-    };
-  }
-
-  DbCompany copyWith(
-          {int? id,
-          String? uuid,
-          String? name,
-          Value<String?> logo = const Value.absent(),
-          String? ownerName,
-          String? ownerEmail,
-          String? plan,
-          String? subscriptionStatus,
-          Value<DateTime?> currentCycleEnd = const Value.absent()}) =>
-      DbCompany(
-        id: id ?? this.id,
-        uuid: uuid ?? this.uuid,
-        name: name ?? this.name,
-        logo: logo.present ? logo.value : this.logo,
-        ownerName: ownerName ?? this.ownerName,
-        ownerEmail: ownerEmail ?? this.ownerEmail,
-        plan: plan ?? this.plan,
-        subscriptionStatus: subscriptionStatus ?? this.subscriptionStatus,
-        currentCycleEnd: currentCycleEnd.present
-            ? currentCycleEnd.value
-            : this.currentCycleEnd,
-      );
-  DbCompany copyWithCompanion(CompaniesCompanion data) {
-    return DbCompany(
-      id: data.id.present ? data.id.value : this.id,
-      uuid: data.uuid.present ? data.uuid.value : this.uuid,
-      name: data.name.present ? data.name.value : this.name,
-      logo: data.logo.present ? data.logo.value : this.logo,
-      ownerName: data.ownerName.present ? data.ownerName.value : this.ownerName,
-      ownerEmail:
-          data.ownerEmail.present ? data.ownerEmail.value : this.ownerEmail,
-      plan: data.plan.present ? data.plan.value : this.plan,
-      subscriptionStatus: data.subscriptionStatus.present
-          ? data.subscriptionStatus.value
-          : this.subscriptionStatus,
-      currentCycleEnd: data.currentCycleEnd.present
-          ? data.currentCycleEnd.value
-          : this.currentCycleEnd,
-    );
-  }
-
-  @override
-  String toString() {
-    return (StringBuffer('DbCompany(')
-          ..write('id: $id, ')
-          ..write('uuid: $uuid, ')
-          ..write('name: $name, ')
-          ..write('logo: $logo, ')
-          ..write('ownerName: $ownerName, ')
-          ..write('ownerEmail: $ownerEmail, ')
-          ..write('plan: $plan, ')
-          ..write('subscriptionStatus: $subscriptionStatus, ')
-          ..write('currentCycleEnd: $currentCycleEnd')
-          ..write(')'))
-        .toString();
-  }
-
-  @override
-  int get hashCode => Object.hash(id, uuid, name, logo, ownerName, ownerEmail,
-      plan, subscriptionStatus, currentCycleEnd);
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      (other is DbCompany &&
-          other.id == this.id &&
-          other.uuid == this.uuid &&
-          other.name == this.name &&
-          other.logo == this.logo &&
-          other.ownerName == this.ownerName &&
-          other.ownerEmail == this.ownerEmail &&
-          other.plan == this.plan &&
-          other.subscriptionStatus == this.subscriptionStatus &&
-          other.currentCycleEnd == this.currentCycleEnd);
-}
-
-class CompaniesCompanion extends UpdateCompanion<DbCompany> {
-  final Value<int> id;
-  final Value<String> uuid;
-  final Value<String> name;
-  final Value<String?> logo;
-  final Value<String> ownerName;
-  final Value<String> ownerEmail;
-  final Value<String> plan;
-  final Value<String> subscriptionStatus;
-  final Value<DateTime?> currentCycleEnd;
-  const CompaniesCompanion({
-    this.id = const Value.absent(),
-    this.uuid = const Value.absent(),
-    this.name = const Value.absent(),
-    this.logo = const Value.absent(),
-    this.ownerName = const Value.absent(),
-    this.ownerEmail = const Value.absent(),
-    this.plan = const Value.absent(),
-    this.subscriptionStatus = const Value.absent(),
-    this.currentCycleEnd = const Value.absent(),
-  });
-  CompaniesCompanion.insert({
-    this.id = const Value.absent(),
-    required String uuid,
-    required String name,
-    this.logo = const Value.absent(),
-    required String ownerName,
-    required String ownerEmail,
-    required String plan,
-    required String subscriptionStatus,
-    this.currentCycleEnd = const Value.absent(),
-  })  : uuid = Value(uuid),
-        name = Value(name),
-        ownerName = Value(ownerName),
-        ownerEmail = Value(ownerEmail),
-        plan = Value(plan),
-        subscriptionStatus = Value(subscriptionStatus);
-  static Insertable<DbCompany> custom({
-    Expression<int>? id,
-    Expression<String>? uuid,
-    Expression<String>? name,
-    Expression<String>? logo,
-    Expression<String>? ownerName,
-    Expression<String>? ownerEmail,
-    Expression<String>? plan,
-    Expression<String>? subscriptionStatus,
-    Expression<DateTime>? currentCycleEnd,
-  }) {
-    return RawValuesInsertable({
-      if (id != null) 'id': id,
-      if (uuid != null) 'uuid': uuid,
-      if (name != null) 'name': name,
-      if (logo != null) 'logo': logo,
-      if (ownerName != null) 'owner_name': ownerName,
-      if (ownerEmail != null) 'owner_email': ownerEmail,
-      if (plan != null) 'plan': plan,
-      if (subscriptionStatus != null) 'subscription_status': subscriptionStatus,
-      if (currentCycleEnd != null) 'current_cycle_end': currentCycleEnd,
-    });
-  }
-
-  CompaniesCompanion copyWith(
-      {Value<int>? id,
-      Value<String>? uuid,
-      Value<String>? name,
-      Value<String?>? logo,
-      Value<String>? ownerName,
-      Value<String>? ownerEmail,
-      Value<String>? plan,
-      Value<String>? subscriptionStatus,
-      Value<DateTime?>? currentCycleEnd}) {
-    return CompaniesCompanion(
-      id: id ?? this.id,
-      uuid: uuid ?? this.uuid,
-      name: name ?? this.name,
-      logo: logo ?? this.logo,
-      ownerName: ownerName ?? this.ownerName,
-      ownerEmail: ownerEmail ?? this.ownerEmail,
-      plan: plan ?? this.plan,
-      subscriptionStatus: subscriptionStatus ?? this.subscriptionStatus,
-      currentCycleEnd: currentCycleEnd ?? this.currentCycleEnd,
-    );
-  }
-
-  @override
-  Map<String, Expression> toColumns(bool nullToAbsent) {
-    final map = <String, Expression>{};
-    if (id.present) {
-      map['id'] = Variable<int>(id.value);
-    }
-    if (uuid.present) {
-      map['uuid'] = Variable<String>(uuid.value);
-    }
-    if (name.present) {
-      map['name'] = Variable<String>(name.value);
-    }
-    if (logo.present) {
-      map['logo'] = Variable<String>(logo.value);
-    }
-    if (ownerName.present) {
-      map['owner_name'] = Variable<String>(ownerName.value);
-    }
-    if (ownerEmail.present) {
-      map['owner_email'] = Variable<String>(ownerEmail.value);
-    }
-    if (plan.present) {
-      map['plan'] = Variable<String>(plan.value);
-    }
-    if (subscriptionStatus.present) {
-      map['subscription_status'] = Variable<String>(subscriptionStatus.value);
-    }
-    if (currentCycleEnd.present) {
-      map['current_cycle_end'] = Variable<DateTime>(currentCycleEnd.value);
-    }
-    return map;
-  }
-
-  @override
-  String toString() {
-    return (StringBuffer('CompaniesCompanion(')
-          ..write('id: $id, ')
-          ..write('uuid: $uuid, ')
-          ..write('name: $name, ')
-          ..write('logo: $logo, ')
-          ..write('ownerName: $ownerName, ')
-          ..write('ownerEmail: $ownerEmail, ')
-          ..write('plan: $plan, ')
-          ..write('subscriptionStatus: $subscriptionStatus, ')
-          ..write('currentCycleEnd: $currentCycleEnd')
-          ..write(')'))
-        .toString();
-  }
-}
-
-class $UserCompaniesTable extends UserCompanies
-    with TableInfo<$UserCompaniesTable, DbUserCompany> {
-  @override
-  final GeneratedDatabase attachedDatabase;
-  final String? _alias;
-  $UserCompaniesTable(this.attachedDatabase, [this._alias]);
-  static const VerificationMeta _userIdMeta = const VerificationMeta('userId');
-  @override
-  late final GeneratedColumn<int> userId = GeneratedColumn<int>(
-      'user_id', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: true,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'REFERENCES users (id) ON DELETE CASCADE'));
-  static const VerificationMeta _companyIdMeta =
-      const VerificationMeta('companyId');
-  @override
-  late final GeneratedColumn<int> companyId = GeneratedColumn<int>(
-      'company_id', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: true,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'REFERENCES companies (id) ON DELETE CASCADE'));
-  static const VerificationMeta _isOwnerMeta =
-      const VerificationMeta('isOwner');
-  @override
-  late final GeneratedColumn<bool> isOwner = GeneratedColumn<bool>(
-      'is_owner', aliasedName, false,
-      type: DriftSqlType.bool,
-      requiredDuringInsert: false,
-      defaultConstraints:
-          GeneratedColumn.constraintIsAlways('CHECK ("is_owner" IN (0, 1))'),
-      defaultValue: const Constant(false));
-  @override
-  List<GeneratedColumn> get $columns => [userId, companyId, isOwner];
-  @override
-  String get aliasedName => _alias ?? actualTableName;
-  @override
-  String get actualTableName => $name;
-  static const String $name = 'user_companies';
-  @override
-  VerificationContext validateIntegrity(Insertable<DbUserCompany> instance,
-      {bool isInserting = false}) {
-    final context = VerificationContext();
-    final data = instance.toColumns(true);
-    if (data.containsKey('user_id')) {
-      context.handle(_userIdMeta,
-          userId.isAcceptableOrUnknown(data['user_id']!, _userIdMeta));
-    } else if (isInserting) {
-      context.missing(_userIdMeta);
-    }
-    if (data.containsKey('company_id')) {
-      context.handle(_companyIdMeta,
-          companyId.isAcceptableOrUnknown(data['company_id']!, _companyIdMeta));
-    } else if (isInserting) {
-      context.missing(_companyIdMeta);
-    }
-    if (data.containsKey('is_owner')) {
-      context.handle(_isOwnerMeta,
-          isOwner.isAcceptableOrUnknown(data['is_owner']!, _isOwnerMeta));
-    }
-    return context;
-  }
-
-  @override
-  Set<GeneratedColumn> get $primaryKey => {userId, companyId};
-  @override
-  DbUserCompany map(Map<String, dynamic> data, {String? tablePrefix}) {
-    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
-    return DbUserCompany(
-      userId: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}user_id'])!,
-      companyId: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}company_id'])!,
-      isOwner: attachedDatabase.typeMapping
-          .read(DriftSqlType.bool, data['${effectivePrefix}is_owner'])!,
-    );
-  }
-
-  @override
-  $UserCompaniesTable createAlias(String alias) {
-    return $UserCompaniesTable(attachedDatabase, alias);
-  }
-}
-
-class DbUserCompany extends DataClass implements Insertable<DbUserCompany> {
-  final int userId;
-  final int companyId;
-  final bool isOwner;
-  const DbUserCompany(
-      {required this.userId, required this.companyId, required this.isOwner});
-  @override
-  Map<String, Expression> toColumns(bool nullToAbsent) {
-    final map = <String, Expression>{};
-    map['user_id'] = Variable<int>(userId);
-    map['company_id'] = Variable<int>(companyId);
-    map['is_owner'] = Variable<bool>(isOwner);
-    return map;
-  }
-
-  UserCompaniesCompanion toCompanion(bool nullToAbsent) {
-    return UserCompaniesCompanion(
-      userId: Value(userId),
-      companyId: Value(companyId),
-      isOwner: Value(isOwner),
-    );
-  }
-
-  factory DbUserCompany.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
-    serializer ??= driftRuntimeOptions.defaultSerializer;
-    return DbUserCompany(
-      userId: serializer.fromJson<int>(json['userId']),
-      companyId: serializer.fromJson<int>(json['companyId']),
-      isOwner: serializer.fromJson<bool>(json['isOwner']),
-    );
-  }
-  @override
-  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
-    serializer ??= driftRuntimeOptions.defaultSerializer;
-    return <String, dynamic>{
-      'userId': serializer.toJson<int>(userId),
-      'companyId': serializer.toJson<int>(companyId),
-      'isOwner': serializer.toJson<bool>(isOwner),
-    };
-  }
-
-  DbUserCompany copyWith({int? userId, int? companyId, bool? isOwner}) =>
-      DbUserCompany(
-        userId: userId ?? this.userId,
-        companyId: companyId ?? this.companyId,
-        isOwner: isOwner ?? this.isOwner,
-      );
-  DbUserCompany copyWithCompanion(UserCompaniesCompanion data) {
-    return DbUserCompany(
-      userId: data.userId.present ? data.userId.value : this.userId,
-      companyId: data.companyId.present ? data.companyId.value : this.companyId,
-      isOwner: data.isOwner.present ? data.isOwner.value : this.isOwner,
-    );
-  }
-
-  @override
-  String toString() {
-    return (StringBuffer('DbUserCompany(')
-          ..write('userId: $userId, ')
-          ..write('companyId: $companyId, ')
-          ..write('isOwner: $isOwner')
-          ..write(')'))
-        .toString();
-  }
-
-  @override
-  int get hashCode => Object.hash(userId, companyId, isOwner);
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      (other is DbUserCompany &&
-          other.userId == this.userId &&
-          other.companyId == this.companyId &&
-          other.isOwner == this.isOwner);
-}
-
-class UserCompaniesCompanion extends UpdateCompanion<DbUserCompany> {
-  final Value<int> userId;
-  final Value<int> companyId;
-  final Value<bool> isOwner;
-  final Value<int> rowid;
-  const UserCompaniesCompanion({
-    this.userId = const Value.absent(),
-    this.companyId = const Value.absent(),
-    this.isOwner = const Value.absent(),
-    this.rowid = const Value.absent(),
-  });
-  UserCompaniesCompanion.insert({
-    required int userId,
-    required int companyId,
-    this.isOwner = const Value.absent(),
-    this.rowid = const Value.absent(),
-  })  : userId = Value(userId),
-        companyId = Value(companyId);
-  static Insertable<DbUserCompany> custom({
-    Expression<int>? userId,
-    Expression<int>? companyId,
-    Expression<bool>? isOwner,
-    Expression<int>? rowid,
-  }) {
-    return RawValuesInsertable({
-      if (userId != null) 'user_id': userId,
-      if (companyId != null) 'company_id': companyId,
-      if (isOwner != null) 'is_owner': isOwner,
-      if (rowid != null) 'rowid': rowid,
-    });
-  }
-
-  UserCompaniesCompanion copyWith(
-      {Value<int>? userId,
-      Value<int>? companyId,
-      Value<bool>? isOwner,
-      Value<int>? rowid}) {
-    return UserCompaniesCompanion(
-      userId: userId ?? this.userId,
-      companyId: companyId ?? this.companyId,
-      isOwner: isOwner ?? this.isOwner,
-      rowid: rowid ?? this.rowid,
-    );
-  }
-
-  @override
-  Map<String, Expression> toColumns(bool nullToAbsent) {
-    final map = <String, Expression>{};
-    if (userId.present) {
-      map['user_id'] = Variable<int>(userId.value);
-    }
-    if (companyId.present) {
-      map['company_id'] = Variable<int>(companyId.value);
-    }
-    if (isOwner.present) {
-      map['is_owner'] = Variable<bool>(isOwner.value);
-    }
-    if (rowid.present) {
-      map['rowid'] = Variable<int>(rowid.value);
-    }
-    return map;
-  }
-
-  @override
-  String toString() {
-    return (StringBuffer('UserCompaniesCompanion(')
-          ..write('userId: $userId, ')
-          ..write('companyId: $companyId, ')
-          ..write('isOwner: $isOwner, ')
-          ..write('rowid: $rowid')
-          ..write(')'))
-        .toString();
-  }
-}
-
 class $ProvidersTable extends Providers
     with TableInfo<$ProvidersTable, DbProvider> {
   @override
@@ -1015,12 +315,6 @@ class $ProvidersTable extends Providers
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
       'id', aliasedName, false,
-      type: DriftSqlType.int, requiredDuringInsert: false);
-  static const VerificationMeta _companyIdMeta =
-      const VerificationMeta('companyId');
-  @override
-  late final GeneratedColumn<int> companyId = GeneratedColumn<int>(
-      'company_id', aliasedName, true,
       type: DriftSqlType.int, requiredDuringInsert: false);
   static const VerificationMeta _uuidMeta = const VerificationMeta('uuid');
   @override
@@ -1092,7 +386,6 @@ class $ProvidersTable extends Providers
   @override
   List<GeneratedColumn> get $columns => [
         id,
-        companyId,
         uuid,
         name,
         categoryId,
@@ -1117,10 +410,6 @@ class $ProvidersTable extends Providers
     final data = instance.toColumns(true);
     if (data.containsKey('id')) {
       context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
-    }
-    if (data.containsKey('company_id')) {
-      context.handle(_companyIdMeta,
-          companyId.isAcceptableOrUnknown(data['company_id']!, _companyIdMeta));
     }
     if (data.containsKey('uuid')) {
       context.handle(
@@ -1181,8 +470,6 @@ class $ProvidersTable extends Providers
     return DbProvider(
       id: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
-      companyId: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}company_id']),
       uuid: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}uuid']),
       name: attachedDatabase.typeMapping
@@ -1220,7 +507,6 @@ class $ProvidersTable extends Providers
 
 class DbProvider extends DataClass implements Insertable<DbProvider> {
   final int id;
-  final int? companyId;
   final String? uuid;
   final String name;
   final int? categoryId;
@@ -1234,7 +520,6 @@ class DbProvider extends DataClass implements Insertable<DbProvider> {
   final bool isDeleted;
   const DbProvider(
       {required this.id,
-      this.companyId,
       this.uuid,
       required this.name,
       this.categoryId,
@@ -1250,9 +535,6 @@ class DbProvider extends DataClass implements Insertable<DbProvider> {
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     map['id'] = Variable<int>(id);
-    if (!nullToAbsent || companyId != null) {
-      map['company_id'] = Variable<int>(companyId);
-    }
     if (!nullToAbsent || uuid != null) {
       map['uuid'] = Variable<String>(uuid);
     }
@@ -1289,9 +571,6 @@ class DbProvider extends DataClass implements Insertable<DbProvider> {
   ProvidersCompanion toCompanion(bool nullToAbsent) {
     return ProvidersCompanion(
       id: Value(id),
-      companyId: companyId == null && nullToAbsent
-          ? const Value.absent()
-          : Value(companyId),
       uuid: uuid == null && nullToAbsent ? const Value.absent() : Value(uuid),
       name: Value(name),
       categoryId: categoryId == null && nullToAbsent
@@ -1325,7 +604,6 @@ class DbProvider extends DataClass implements Insertable<DbProvider> {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return DbProvider(
       id: serializer.fromJson<int>(json['id']),
-      companyId: serializer.fromJson<int?>(json['companyId']),
       uuid: serializer.fromJson<String?>(json['uuid']),
       name: serializer.fromJson<String>(json['name']),
       categoryId: serializer.fromJson<int?>(json['categoryId']),
@@ -1345,7 +623,6 @@ class DbProvider extends DataClass implements Insertable<DbProvider> {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
       'id': serializer.toJson<int>(id),
-      'companyId': serializer.toJson<int?>(companyId),
       'uuid': serializer.toJson<String?>(uuid),
       'name': serializer.toJson<String>(name),
       'categoryId': serializer.toJson<int?>(categoryId),
@@ -1363,7 +640,6 @@ class DbProvider extends DataClass implements Insertable<DbProvider> {
 
   DbProvider copyWith(
           {int? id,
-          Value<int?> companyId = const Value.absent(),
           Value<String?> uuid = const Value.absent(),
           String? name,
           Value<int?> categoryId = const Value.absent(),
@@ -1377,7 +653,6 @@ class DbProvider extends DataClass implements Insertable<DbProvider> {
           bool? isDeleted}) =>
       DbProvider(
         id: id ?? this.id,
-        companyId: companyId.present ? companyId.value : this.companyId,
         uuid: uuid.present ? uuid.value : this.uuid,
         name: name ?? this.name,
         categoryId: categoryId.present ? categoryId.value : this.categoryId,
@@ -1397,7 +672,6 @@ class DbProvider extends DataClass implements Insertable<DbProvider> {
   DbProvider copyWithCompanion(ProvidersCompanion data) {
     return DbProvider(
       id: data.id.present ? data.id.value : this.id,
-      companyId: data.companyId.present ? data.companyId.value : this.companyId,
       uuid: data.uuid.present ? data.uuid.value : this.uuid,
       name: data.name.present ? data.name.value : this.name,
       categoryId:
@@ -1422,7 +696,6 @@ class DbProvider extends DataClass implements Insertable<DbProvider> {
   String toString() {
     return (StringBuffer('DbProvider(')
           ..write('id: $id, ')
-          ..write('companyId: $companyId, ')
           ..write('uuid: $uuid, ')
           ..write('name: $name, ')
           ..write('categoryId: $categoryId, ')
@@ -1441,7 +714,6 @@ class DbProvider extends DataClass implements Insertable<DbProvider> {
   @override
   int get hashCode => Object.hash(
       id,
-      companyId,
       uuid,
       name,
       categoryId,
@@ -1458,7 +730,6 @@ class DbProvider extends DataClass implements Insertable<DbProvider> {
       identical(this, other) ||
       (other is DbProvider &&
           other.id == this.id &&
-          other.companyId == this.companyId &&
           other.uuid == this.uuid &&
           other.name == this.name &&
           other.categoryId == this.categoryId &&
@@ -1474,7 +745,6 @@ class DbProvider extends DataClass implements Insertable<DbProvider> {
 
 class ProvidersCompanion extends UpdateCompanion<DbProvider> {
   final Value<int> id;
-  final Value<int?> companyId;
   final Value<String?> uuid;
   final Value<String> name;
   final Value<int?> categoryId;
@@ -1488,7 +758,6 @@ class ProvidersCompanion extends UpdateCompanion<DbProvider> {
   final Value<bool> isDeleted;
   const ProvidersCompanion({
     this.id = const Value.absent(),
-    this.companyId = const Value.absent(),
     this.uuid = const Value.absent(),
     this.name = const Value.absent(),
     this.categoryId = const Value.absent(),
@@ -1503,7 +772,6 @@ class ProvidersCompanion extends UpdateCompanion<DbProvider> {
   });
   ProvidersCompanion.insert({
     this.id = const Value.absent(),
-    this.companyId = const Value.absent(),
     this.uuid = const Value.absent(),
     required String name,
     this.categoryId = const Value.absent(),
@@ -1518,7 +786,6 @@ class ProvidersCompanion extends UpdateCompanion<DbProvider> {
   }) : name = Value(name);
   static Insertable<DbProvider> custom({
     Expression<int>? id,
-    Expression<int>? companyId,
     Expression<String>? uuid,
     Expression<String>? name,
     Expression<int>? categoryId,
@@ -1533,7 +800,6 @@ class ProvidersCompanion extends UpdateCompanion<DbProvider> {
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
-      if (companyId != null) 'company_id': companyId,
       if (uuid != null) 'uuid': uuid,
       if (name != null) 'name': name,
       if (categoryId != null) 'category_id': categoryId,
@@ -1550,7 +816,6 @@ class ProvidersCompanion extends UpdateCompanion<DbProvider> {
 
   ProvidersCompanion copyWith(
       {Value<int>? id,
-      Value<int?>? companyId,
       Value<String?>? uuid,
       Value<String>? name,
       Value<int?>? categoryId,
@@ -1564,7 +829,6 @@ class ProvidersCompanion extends UpdateCompanion<DbProvider> {
       Value<bool>? isDeleted}) {
     return ProvidersCompanion(
       id: id ?? this.id,
-      companyId: companyId ?? this.companyId,
       uuid: uuid ?? this.uuid,
       name: name ?? this.name,
       categoryId: categoryId ?? this.categoryId,
@@ -1584,9 +848,6 @@ class ProvidersCompanion extends UpdateCompanion<DbProvider> {
     final map = <String, Expression>{};
     if (id.present) {
       map['id'] = Variable<int>(id.value);
-    }
-    if (companyId.present) {
-      map['company_id'] = Variable<int>(companyId.value);
     }
     if (uuid.present) {
       map['uuid'] = Variable<String>(uuid.value);
@@ -1630,7 +891,6 @@ class ProvidersCompanion extends UpdateCompanion<DbProvider> {
   String toString() {
     return (StringBuffer('ProvidersCompanion(')
           ..write('id: $id, ')
-          ..write('companyId: $companyId, ')
           ..write('uuid: $uuid, ')
           ..write('name: $name, ')
           ..write('categoryId: $categoryId, ')
@@ -2105,12 +1365,9 @@ abstract class _$AppDb extends GeneratedDatabase {
   _$AppDb(QueryExecutor e) : super(e);
   $AppDbManager get managers => $AppDbManager(this);
   late final $UsersTable users = $UsersTable(this);
-  late final $CompaniesTable companies = $CompaniesTable(this);
-  late final $UserCompaniesTable userCompanies = $UserCompaniesTable(this);
   late final $ProvidersTable providers = $ProvidersTable(this);
   late final $CategoriesTable categories = $CategoriesTable(this);
   late final UserDao userDao = UserDao(this as AppDb);
-  late final CompanyDao companyDao = CompanyDao(this as AppDb);
   late final ProvidersDao providersDao = ProvidersDao(this as AppDb);
   late final CategoriesDao categoriesDao = CategoriesDao(this as AppDb);
   @override
@@ -2118,26 +1375,7 @@ abstract class _$AppDb extends GeneratedDatabase {
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
   @override
   List<DatabaseSchemaEntity> get allSchemaEntities =>
-      [users, companies, userCompanies, providers, categories];
-  @override
-  StreamQueryUpdateRules get streamUpdateRules => const StreamQueryUpdateRules(
-        [
-          WritePropagation(
-            on: TableUpdateQuery.onTableName('users',
-                limitUpdateKind: UpdateKind.delete),
-            result: [
-              TableUpdate('user_companies', kind: UpdateKind.delete),
-            ],
-          ),
-          WritePropagation(
-            on: TableUpdateQuery.onTableName('companies',
-                limitUpdateKind: UpdateKind.delete),
-            result: [
-              TableUpdate('user_companies', kind: UpdateKind.delete),
-            ],
-          ),
-        ],
-      );
+      [users, providers, categories];
 }
 
 typedef $$UsersTableCreateCompanionBuilder = UsersCompanion Function({
@@ -2154,26 +1392,6 @@ typedef $$UsersTableUpdateCompanionBuilder = UsersCompanion Function({
   Value<String?> image,
   Value<Map<String, dynamic>?> customFieldsJson,
 });
-
-final class $$UsersTableReferences
-    extends BaseReferences<_$AppDb, $UsersTable, DbUser> {
-  $$UsersTableReferences(super.$_db, super.$_table, super.$_typedResult);
-
-  static MultiTypedResultKey<$UserCompaniesTable, List<DbUserCompany>>
-      _userCompaniesRefsTable(_$AppDb db) =>
-          MultiTypedResultKey.fromTable(db.userCompanies,
-              aliasName:
-                  $_aliasNameGenerator(db.users.id, db.userCompanies.userId));
-
-  $$UserCompaniesTableProcessedTableManager get userCompaniesRefs {
-    final manager = $$UserCompaniesTableTableManager($_db, $_db.userCompanies)
-        .filter((f) => f.userId.id.sqlEquals($_itemColumn<int>('id')!));
-
-    final cache = $_typedResult.readTableOrNull(_userCompaniesRefsTable($_db));
-    return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: cache));
-  }
-}
 
 class $$UsersTableFilterComposer extends Composer<_$AppDb, $UsersTable> {
   $$UsersTableFilterComposer({
@@ -2200,27 +1418,6 @@ class $$UsersTableFilterComposer extends Composer<_$AppDb, $UsersTable> {
       get customFieldsJson => $composableBuilder(
           column: $table.customFieldsJson,
           builder: (column) => ColumnWithTypeConverterFilters(column));
-
-  Expression<bool> userCompaniesRefs(
-      Expression<bool> Function($$UserCompaniesTableFilterComposer f) f) {
-    final $$UserCompaniesTableFilterComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.id,
-        referencedTable: $db.userCompanies,
-        getReferencedColumn: (t) => t.userId,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$UserCompaniesTableFilterComposer(
-              $db: $db,
-              $table: $db.userCompanies,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
-    return f(composer);
-  }
 }
 
 class $$UsersTableOrderingComposer extends Composer<_$AppDb, $UsersTable> {
@@ -2271,27 +1468,6 @@ class $$UsersTableAnnotationComposer extends Composer<_$AppDb, $UsersTable> {
   GeneratedColumnWithTypeConverter<Map<String, dynamic>?, String>
       get customFieldsJson => $composableBuilder(
           column: $table.customFieldsJson, builder: (column) => column);
-
-  Expression<T> userCompaniesRefs<T extends Object>(
-      Expression<T> Function($$UserCompaniesTableAnnotationComposer a) f) {
-    final $$UserCompaniesTableAnnotationComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.id,
-        referencedTable: $db.userCompanies,
-        getReferencedColumn: (t) => t.userId,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$UserCompaniesTableAnnotationComposer(
-              $db: $db,
-              $table: $db.userCompanies,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
-    return f(composer);
-  }
 }
 
 class $$UsersTableTableManager extends RootTableManager<
@@ -2303,9 +1479,9 @@ class $$UsersTableTableManager extends RootTableManager<
     $$UsersTableAnnotationComposer,
     $$UsersTableCreateCompanionBuilder,
     $$UsersTableUpdateCompanionBuilder,
-    (DbUser, $$UsersTableReferences),
+    (DbUser, BaseReferences<_$AppDb, $UsersTable, DbUser>),
     DbUser,
-    PrefetchHooks Function({bool userCompaniesRefs})> {
+    PrefetchHooks Function()> {
   $$UsersTableTableManager(_$AppDb db, $UsersTable table)
       : super(TableManagerState(
           db: db,
@@ -2347,35 +1523,9 @@ class $$UsersTableTableManager extends RootTableManager<
             customFieldsJson: customFieldsJson,
           ),
           withReferenceMapper: (p0) => p0
-              .map((e) =>
-                  (e.readTable(table), $$UsersTableReferences(db, table, e)))
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
               .toList(),
-          prefetchHooksCallback: ({userCompaniesRefs = false}) {
-            return PrefetchHooks(
-              db: db,
-              explicitlyWatchedTables: [
-                if (userCompaniesRefs) db.userCompanies
-              ],
-              addJoins: null,
-              getPrefetchedDataCallback: (items) async {
-                return [
-                  if (userCompaniesRefs)
-                    await $_getPrefetchedData<DbUser, $UsersTable,
-                            DbUserCompany>(
-                        currentTable: table,
-                        referencedTable:
-                            $$UsersTableReferences._userCompaniesRefsTable(db),
-                        managerFromTypedResult: (p0) =>
-                            $$UsersTableReferences(db, table, p0)
-                                .userCompaniesRefs,
-                        referencedItemsForCurrentItem: (item,
-                                referencedItems) =>
-                            referencedItems.where((e) => e.userId == item.id),
-                        typedResults: items)
-                ];
-              },
-            );
-          },
+          prefetchHooksCallback: null,
         ));
 }
 
@@ -2388,646 +1538,11 @@ typedef $$UsersTableProcessedTableManager = ProcessedTableManager<
     $$UsersTableAnnotationComposer,
     $$UsersTableCreateCompanionBuilder,
     $$UsersTableUpdateCompanionBuilder,
-    (DbUser, $$UsersTableReferences),
+    (DbUser, BaseReferences<_$AppDb, $UsersTable, DbUser>),
     DbUser,
-    PrefetchHooks Function({bool userCompaniesRefs})>;
-typedef $$CompaniesTableCreateCompanionBuilder = CompaniesCompanion Function({
-  Value<int> id,
-  required String uuid,
-  required String name,
-  Value<String?> logo,
-  required String ownerName,
-  required String ownerEmail,
-  required String plan,
-  required String subscriptionStatus,
-  Value<DateTime?> currentCycleEnd,
-});
-typedef $$CompaniesTableUpdateCompanionBuilder = CompaniesCompanion Function({
-  Value<int> id,
-  Value<String> uuid,
-  Value<String> name,
-  Value<String?> logo,
-  Value<String> ownerName,
-  Value<String> ownerEmail,
-  Value<String> plan,
-  Value<String> subscriptionStatus,
-  Value<DateTime?> currentCycleEnd,
-});
-
-final class $$CompaniesTableReferences
-    extends BaseReferences<_$AppDb, $CompaniesTable, DbCompany> {
-  $$CompaniesTableReferences(super.$_db, super.$_table, super.$_typedResult);
-
-  static MultiTypedResultKey<$UserCompaniesTable, List<DbUserCompany>>
-      _userCompaniesRefsTable(_$AppDb db) =>
-          MultiTypedResultKey.fromTable(db.userCompanies,
-              aliasName: $_aliasNameGenerator(
-                  db.companies.id, db.userCompanies.companyId));
-
-  $$UserCompaniesTableProcessedTableManager get userCompaniesRefs {
-    final manager = $$UserCompaniesTableTableManager($_db, $_db.userCompanies)
-        .filter((f) => f.companyId.id.sqlEquals($_itemColumn<int>('id')!));
-
-    final cache = $_typedResult.readTableOrNull(_userCompaniesRefsTable($_db));
-    return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: cache));
-  }
-}
-
-class $$CompaniesTableFilterComposer
-    extends Composer<_$AppDb, $CompaniesTable> {
-  $$CompaniesTableFilterComposer({
-    required super.$db,
-    required super.$table,
-    super.joinBuilder,
-    super.$addJoinBuilderToRootComposer,
-    super.$removeJoinBuilderFromRootComposer,
-  });
-  ColumnFilters<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnFilters(column));
-
-  ColumnFilters<String> get uuid => $composableBuilder(
-      column: $table.uuid, builder: (column) => ColumnFilters(column));
-
-  ColumnFilters<String> get name => $composableBuilder(
-      column: $table.name, builder: (column) => ColumnFilters(column));
-
-  ColumnFilters<String> get logo => $composableBuilder(
-      column: $table.logo, builder: (column) => ColumnFilters(column));
-
-  ColumnFilters<String> get ownerName => $composableBuilder(
-      column: $table.ownerName, builder: (column) => ColumnFilters(column));
-
-  ColumnFilters<String> get ownerEmail => $composableBuilder(
-      column: $table.ownerEmail, builder: (column) => ColumnFilters(column));
-
-  ColumnFilters<String> get plan => $composableBuilder(
-      column: $table.plan, builder: (column) => ColumnFilters(column));
-
-  ColumnFilters<String> get subscriptionStatus => $composableBuilder(
-      column: $table.subscriptionStatus,
-      builder: (column) => ColumnFilters(column));
-
-  ColumnFilters<DateTime> get currentCycleEnd => $composableBuilder(
-      column: $table.currentCycleEnd,
-      builder: (column) => ColumnFilters(column));
-
-  Expression<bool> userCompaniesRefs(
-      Expression<bool> Function($$UserCompaniesTableFilterComposer f) f) {
-    final $$UserCompaniesTableFilterComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.id,
-        referencedTable: $db.userCompanies,
-        getReferencedColumn: (t) => t.companyId,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$UserCompaniesTableFilterComposer(
-              $db: $db,
-              $table: $db.userCompanies,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
-    return f(composer);
-  }
-}
-
-class $$CompaniesTableOrderingComposer
-    extends Composer<_$AppDb, $CompaniesTable> {
-  $$CompaniesTableOrderingComposer({
-    required super.$db,
-    required super.$table,
-    super.joinBuilder,
-    super.$addJoinBuilderToRootComposer,
-    super.$removeJoinBuilderFromRootComposer,
-  });
-  ColumnOrderings<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnOrderings(column));
-
-  ColumnOrderings<String> get uuid => $composableBuilder(
-      column: $table.uuid, builder: (column) => ColumnOrderings(column));
-
-  ColumnOrderings<String> get name => $composableBuilder(
-      column: $table.name, builder: (column) => ColumnOrderings(column));
-
-  ColumnOrderings<String> get logo => $composableBuilder(
-      column: $table.logo, builder: (column) => ColumnOrderings(column));
-
-  ColumnOrderings<String> get ownerName => $composableBuilder(
-      column: $table.ownerName, builder: (column) => ColumnOrderings(column));
-
-  ColumnOrderings<String> get ownerEmail => $composableBuilder(
-      column: $table.ownerEmail, builder: (column) => ColumnOrderings(column));
-
-  ColumnOrderings<String> get plan => $composableBuilder(
-      column: $table.plan, builder: (column) => ColumnOrderings(column));
-
-  ColumnOrderings<String> get subscriptionStatus => $composableBuilder(
-      column: $table.subscriptionStatus,
-      builder: (column) => ColumnOrderings(column));
-
-  ColumnOrderings<DateTime> get currentCycleEnd => $composableBuilder(
-      column: $table.currentCycleEnd,
-      builder: (column) => ColumnOrderings(column));
-}
-
-class $$CompaniesTableAnnotationComposer
-    extends Composer<_$AppDb, $CompaniesTable> {
-  $$CompaniesTableAnnotationComposer({
-    required super.$db,
-    required super.$table,
-    super.joinBuilder,
-    super.$addJoinBuilderToRootComposer,
-    super.$removeJoinBuilderFromRootComposer,
-  });
-  GeneratedColumn<int> get id =>
-      $composableBuilder(column: $table.id, builder: (column) => column);
-
-  GeneratedColumn<String> get uuid =>
-      $composableBuilder(column: $table.uuid, builder: (column) => column);
-
-  GeneratedColumn<String> get name =>
-      $composableBuilder(column: $table.name, builder: (column) => column);
-
-  GeneratedColumn<String> get logo =>
-      $composableBuilder(column: $table.logo, builder: (column) => column);
-
-  GeneratedColumn<String> get ownerName =>
-      $composableBuilder(column: $table.ownerName, builder: (column) => column);
-
-  GeneratedColumn<String> get ownerEmail => $composableBuilder(
-      column: $table.ownerEmail, builder: (column) => column);
-
-  GeneratedColumn<String> get plan =>
-      $composableBuilder(column: $table.plan, builder: (column) => column);
-
-  GeneratedColumn<String> get subscriptionStatus => $composableBuilder(
-      column: $table.subscriptionStatus, builder: (column) => column);
-
-  GeneratedColumn<DateTime> get currentCycleEnd => $composableBuilder(
-      column: $table.currentCycleEnd, builder: (column) => column);
-
-  Expression<T> userCompaniesRefs<T extends Object>(
-      Expression<T> Function($$UserCompaniesTableAnnotationComposer a) f) {
-    final $$UserCompaniesTableAnnotationComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.id,
-        referencedTable: $db.userCompanies,
-        getReferencedColumn: (t) => t.companyId,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$UserCompaniesTableAnnotationComposer(
-              $db: $db,
-              $table: $db.userCompanies,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
-    return f(composer);
-  }
-}
-
-class $$CompaniesTableTableManager extends RootTableManager<
-    _$AppDb,
-    $CompaniesTable,
-    DbCompany,
-    $$CompaniesTableFilterComposer,
-    $$CompaniesTableOrderingComposer,
-    $$CompaniesTableAnnotationComposer,
-    $$CompaniesTableCreateCompanionBuilder,
-    $$CompaniesTableUpdateCompanionBuilder,
-    (DbCompany, $$CompaniesTableReferences),
-    DbCompany,
-    PrefetchHooks Function({bool userCompaniesRefs})> {
-  $$CompaniesTableTableManager(_$AppDb db, $CompaniesTable table)
-      : super(TableManagerState(
-          db: db,
-          table: table,
-          createFilteringComposer: () =>
-              $$CompaniesTableFilterComposer($db: db, $table: table),
-          createOrderingComposer: () =>
-              $$CompaniesTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer: () =>
-              $$CompaniesTableAnnotationComposer($db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<String> uuid = const Value.absent(),
-            Value<String> name = const Value.absent(),
-            Value<String?> logo = const Value.absent(),
-            Value<String> ownerName = const Value.absent(),
-            Value<String> ownerEmail = const Value.absent(),
-            Value<String> plan = const Value.absent(),
-            Value<String> subscriptionStatus = const Value.absent(),
-            Value<DateTime?> currentCycleEnd = const Value.absent(),
-          }) =>
-              CompaniesCompanion(
-            id: id,
-            uuid: uuid,
-            name: name,
-            logo: logo,
-            ownerName: ownerName,
-            ownerEmail: ownerEmail,
-            plan: plan,
-            subscriptionStatus: subscriptionStatus,
-            currentCycleEnd: currentCycleEnd,
-          ),
-          createCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            required String uuid,
-            required String name,
-            Value<String?> logo = const Value.absent(),
-            required String ownerName,
-            required String ownerEmail,
-            required String plan,
-            required String subscriptionStatus,
-            Value<DateTime?> currentCycleEnd = const Value.absent(),
-          }) =>
-              CompaniesCompanion.insert(
-            id: id,
-            uuid: uuid,
-            name: name,
-            logo: logo,
-            ownerName: ownerName,
-            ownerEmail: ownerEmail,
-            plan: plan,
-            subscriptionStatus: subscriptionStatus,
-            currentCycleEnd: currentCycleEnd,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (
-                    e.readTable(table),
-                    $$CompaniesTableReferences(db, table, e)
-                  ))
-              .toList(),
-          prefetchHooksCallback: ({userCompaniesRefs = false}) {
-            return PrefetchHooks(
-              db: db,
-              explicitlyWatchedTables: [
-                if (userCompaniesRefs) db.userCompanies
-              ],
-              addJoins: null,
-              getPrefetchedDataCallback: (items) async {
-                return [
-                  if (userCompaniesRefs)
-                    await $_getPrefetchedData<DbCompany, $CompaniesTable,
-                            DbUserCompany>(
-                        currentTable: table,
-                        referencedTable: $$CompaniesTableReferences
-                            ._userCompaniesRefsTable(db),
-                        managerFromTypedResult: (p0) =>
-                            $$CompaniesTableReferences(db, table, p0)
-                                .userCompaniesRefs,
-                        referencedItemsForCurrentItem:
-                            (item, referencedItems) => referencedItems
-                                .where((e) => e.companyId == item.id),
-                        typedResults: items)
-                ];
-              },
-            );
-          },
-        ));
-}
-
-typedef $$CompaniesTableProcessedTableManager = ProcessedTableManager<
-    _$AppDb,
-    $CompaniesTable,
-    DbCompany,
-    $$CompaniesTableFilterComposer,
-    $$CompaniesTableOrderingComposer,
-    $$CompaniesTableAnnotationComposer,
-    $$CompaniesTableCreateCompanionBuilder,
-    $$CompaniesTableUpdateCompanionBuilder,
-    (DbCompany, $$CompaniesTableReferences),
-    DbCompany,
-    PrefetchHooks Function({bool userCompaniesRefs})>;
-typedef $$UserCompaniesTableCreateCompanionBuilder = UserCompaniesCompanion
-    Function({
-  required int userId,
-  required int companyId,
-  Value<bool> isOwner,
-  Value<int> rowid,
-});
-typedef $$UserCompaniesTableUpdateCompanionBuilder = UserCompaniesCompanion
-    Function({
-  Value<int> userId,
-  Value<int> companyId,
-  Value<bool> isOwner,
-  Value<int> rowid,
-});
-
-final class $$UserCompaniesTableReferences
-    extends BaseReferences<_$AppDb, $UserCompaniesTable, DbUserCompany> {
-  $$UserCompaniesTableReferences(
-      super.$_db, super.$_table, super.$_typedResult);
-
-  static $UsersTable _userIdTable(_$AppDb db) => db.users
-      .createAlias($_aliasNameGenerator(db.userCompanies.userId, db.users.id));
-
-  $$UsersTableProcessedTableManager get userId {
-    final $_column = $_itemColumn<int>('user_id')!;
-
-    final manager = $$UsersTableTableManager($_db, $_db.users)
-        .filter((f) => f.id.sqlEquals($_column));
-    final item = $_typedResult.readTableOrNull(_userIdTable($_db));
-    if (item == null) return manager;
-    return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: [item]));
-  }
-
-  static $CompaniesTable _companyIdTable(_$AppDb db) =>
-      db.companies.createAlias(
-          $_aliasNameGenerator(db.userCompanies.companyId, db.companies.id));
-
-  $$CompaniesTableProcessedTableManager get companyId {
-    final $_column = $_itemColumn<int>('company_id')!;
-
-    final manager = $$CompaniesTableTableManager($_db, $_db.companies)
-        .filter((f) => f.id.sqlEquals($_column));
-    final item = $_typedResult.readTableOrNull(_companyIdTable($_db));
-    if (item == null) return manager;
-    return ProcessedTableManager(
-        manager.$state.copyWith(prefetchedData: [item]));
-  }
-}
-
-class $$UserCompaniesTableFilterComposer
-    extends Composer<_$AppDb, $UserCompaniesTable> {
-  $$UserCompaniesTableFilterComposer({
-    required super.$db,
-    required super.$table,
-    super.joinBuilder,
-    super.$addJoinBuilderToRootComposer,
-    super.$removeJoinBuilderFromRootComposer,
-  });
-  ColumnFilters<bool> get isOwner => $composableBuilder(
-      column: $table.isOwner, builder: (column) => ColumnFilters(column));
-
-  $$UsersTableFilterComposer get userId {
-    final $$UsersTableFilterComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.userId,
-        referencedTable: $db.users,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$UsersTableFilterComposer(
-              $db: $db,
-              $table: $db.users,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
-    return composer;
-  }
-
-  $$CompaniesTableFilterComposer get companyId {
-    final $$CompaniesTableFilterComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.companyId,
-        referencedTable: $db.companies,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$CompaniesTableFilterComposer(
-              $db: $db,
-              $table: $db.companies,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
-    return composer;
-  }
-}
-
-class $$UserCompaniesTableOrderingComposer
-    extends Composer<_$AppDb, $UserCompaniesTable> {
-  $$UserCompaniesTableOrderingComposer({
-    required super.$db,
-    required super.$table,
-    super.joinBuilder,
-    super.$addJoinBuilderToRootComposer,
-    super.$removeJoinBuilderFromRootComposer,
-  });
-  ColumnOrderings<bool> get isOwner => $composableBuilder(
-      column: $table.isOwner, builder: (column) => ColumnOrderings(column));
-
-  $$UsersTableOrderingComposer get userId {
-    final $$UsersTableOrderingComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.userId,
-        referencedTable: $db.users,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$UsersTableOrderingComposer(
-              $db: $db,
-              $table: $db.users,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
-    return composer;
-  }
-
-  $$CompaniesTableOrderingComposer get companyId {
-    final $$CompaniesTableOrderingComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.companyId,
-        referencedTable: $db.companies,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$CompaniesTableOrderingComposer(
-              $db: $db,
-              $table: $db.companies,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
-    return composer;
-  }
-}
-
-class $$UserCompaniesTableAnnotationComposer
-    extends Composer<_$AppDb, $UserCompaniesTable> {
-  $$UserCompaniesTableAnnotationComposer({
-    required super.$db,
-    required super.$table,
-    super.joinBuilder,
-    super.$addJoinBuilderToRootComposer,
-    super.$removeJoinBuilderFromRootComposer,
-  });
-  GeneratedColumn<bool> get isOwner =>
-      $composableBuilder(column: $table.isOwner, builder: (column) => column);
-
-  $$UsersTableAnnotationComposer get userId {
-    final $$UsersTableAnnotationComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.userId,
-        referencedTable: $db.users,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$UsersTableAnnotationComposer(
-              $db: $db,
-              $table: $db.users,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
-    return composer;
-  }
-
-  $$CompaniesTableAnnotationComposer get companyId {
-    final $$CompaniesTableAnnotationComposer composer = $composerBuilder(
-        composer: this,
-        getCurrentColumn: (t) => t.companyId,
-        referencedTable: $db.companies,
-        getReferencedColumn: (t) => t.id,
-        builder: (joinBuilder,
-                {$addJoinBuilderToRootComposer,
-                $removeJoinBuilderFromRootComposer}) =>
-            $$CompaniesTableAnnotationComposer(
-              $db: $db,
-              $table: $db.companies,
-              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
-              joinBuilder: joinBuilder,
-              $removeJoinBuilderFromRootComposer:
-                  $removeJoinBuilderFromRootComposer,
-            ));
-    return composer;
-  }
-}
-
-class $$UserCompaniesTableTableManager extends RootTableManager<
-    _$AppDb,
-    $UserCompaniesTable,
-    DbUserCompany,
-    $$UserCompaniesTableFilterComposer,
-    $$UserCompaniesTableOrderingComposer,
-    $$UserCompaniesTableAnnotationComposer,
-    $$UserCompaniesTableCreateCompanionBuilder,
-    $$UserCompaniesTableUpdateCompanionBuilder,
-    (DbUserCompany, $$UserCompaniesTableReferences),
-    DbUserCompany,
-    PrefetchHooks Function({bool userId, bool companyId})> {
-  $$UserCompaniesTableTableManager(_$AppDb db, $UserCompaniesTable table)
-      : super(TableManagerState(
-          db: db,
-          table: table,
-          createFilteringComposer: () =>
-              $$UserCompaniesTableFilterComposer($db: db, $table: table),
-          createOrderingComposer: () =>
-              $$UserCompaniesTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer: () =>
-              $$UserCompaniesTableAnnotationComposer($db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<int> userId = const Value.absent(),
-            Value<int> companyId = const Value.absent(),
-            Value<bool> isOwner = const Value.absent(),
-            Value<int> rowid = const Value.absent(),
-          }) =>
-              UserCompaniesCompanion(
-            userId: userId,
-            companyId: companyId,
-            isOwner: isOwner,
-            rowid: rowid,
-          ),
-          createCompanionCallback: ({
-            required int userId,
-            required int companyId,
-            Value<bool> isOwner = const Value.absent(),
-            Value<int> rowid = const Value.absent(),
-          }) =>
-              UserCompaniesCompanion.insert(
-            userId: userId,
-            companyId: companyId,
-            isOwner: isOwner,
-            rowid: rowid,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (
-                    e.readTable(table),
-                    $$UserCompaniesTableReferences(db, table, e)
-                  ))
-              .toList(),
-          prefetchHooksCallback: ({userId = false, companyId = false}) {
-            return PrefetchHooks(
-              db: db,
-              explicitlyWatchedTables: [],
-              addJoins: <
-                  T extends TableManagerState<
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic,
-                      dynamic>>(state) {
-                if (userId) {
-                  state = state.withJoin(
-                    currentTable: table,
-                    currentColumn: table.userId,
-                    referencedTable:
-                        $$UserCompaniesTableReferences._userIdTable(db),
-                    referencedColumn:
-                        $$UserCompaniesTableReferences._userIdTable(db).id,
-                  ) as T;
-                }
-                if (companyId) {
-                  state = state.withJoin(
-                    currentTable: table,
-                    currentColumn: table.companyId,
-                    referencedTable:
-                        $$UserCompaniesTableReferences._companyIdTable(db),
-                    referencedColumn:
-                        $$UserCompaniesTableReferences._companyIdTable(db).id,
-                  ) as T;
-                }
-
-                return state;
-              },
-              getPrefetchedDataCallback: (items) async {
-                return [];
-              },
-            );
-          },
-        ));
-}
-
-typedef $$UserCompaniesTableProcessedTableManager = ProcessedTableManager<
-    _$AppDb,
-    $UserCompaniesTable,
-    DbUserCompany,
-    $$UserCompaniesTableFilterComposer,
-    $$UserCompaniesTableOrderingComposer,
-    $$UserCompaniesTableAnnotationComposer,
-    $$UserCompaniesTableCreateCompanionBuilder,
-    $$UserCompaniesTableUpdateCompanionBuilder,
-    (DbUserCompany, $$UserCompaniesTableReferences),
-    DbUserCompany,
-    PrefetchHooks Function({bool userId, bool companyId})>;
+    PrefetchHooks Function()>;
 typedef $$ProvidersTableCreateCompanionBuilder = ProvidersCompanion Function({
   Value<int> id,
-  Value<int?> companyId,
   Value<String?> uuid,
   required String name,
   Value<int?> categoryId,
@@ -3042,7 +1557,6 @@ typedef $$ProvidersTableCreateCompanionBuilder = ProvidersCompanion Function({
 });
 typedef $$ProvidersTableUpdateCompanionBuilder = ProvidersCompanion Function({
   Value<int> id,
-  Value<int?> companyId,
   Value<String?> uuid,
   Value<String> name,
   Value<int?> categoryId,
@@ -3067,9 +1581,6 @@ class $$ProvidersTableFilterComposer
   });
   ColumnFilters<int> get id => $composableBuilder(
       column: $table.id, builder: (column) => ColumnFilters(column));
-
-  ColumnFilters<int> get companyId => $composableBuilder(
-      column: $table.companyId, builder: (column) => ColumnFilters(column));
 
   ColumnFilters<String> get uuid => $composableBuilder(
       column: $table.uuid, builder: (column) => ColumnFilters(column));
@@ -3121,9 +1632,6 @@ class $$ProvidersTableOrderingComposer
   ColumnOrderings<int> get id => $composableBuilder(
       column: $table.id, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<int> get companyId => $composableBuilder(
-      column: $table.companyId, builder: (column) => ColumnOrderings(column));
-
   ColumnOrderings<String> get uuid => $composableBuilder(
       column: $table.uuid, builder: (column) => ColumnOrderings(column));
 
@@ -3171,9 +1679,6 @@ class $$ProvidersTableAnnotationComposer
   });
   GeneratedColumn<int> get id =>
       $composableBuilder(column: $table.id, builder: (column) => column);
-
-  GeneratedColumn<int> get companyId =>
-      $composableBuilder(column: $table.companyId, builder: (column) => column);
 
   GeneratedColumn<String> get uuid =>
       $composableBuilder(column: $table.uuid, builder: (column) => column);
@@ -3234,7 +1739,6 @@ class $$ProvidersTableTableManager extends RootTableManager<
               $$ProvidersTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback: ({
             Value<int> id = const Value.absent(),
-            Value<int?> companyId = const Value.absent(),
             Value<String?> uuid = const Value.absent(),
             Value<String> name = const Value.absent(),
             Value<int?> categoryId = const Value.absent(),
@@ -3250,7 +1754,6 @@ class $$ProvidersTableTableManager extends RootTableManager<
           }) =>
               ProvidersCompanion(
             id: id,
-            companyId: companyId,
             uuid: uuid,
             name: name,
             categoryId: categoryId,
@@ -3265,7 +1768,6 @@ class $$ProvidersTableTableManager extends RootTableManager<
           ),
           createCompanionCallback: ({
             Value<int> id = const Value.absent(),
-            Value<int?> companyId = const Value.absent(),
             Value<String?> uuid = const Value.absent(),
             required String name,
             Value<int?> categoryId = const Value.absent(),
@@ -3281,7 +1783,6 @@ class $$ProvidersTableTableManager extends RootTableManager<
           }) =>
               ProvidersCompanion.insert(
             id: id,
-            companyId: companyId,
             uuid: uuid,
             name: name,
             categoryId: categoryId,
@@ -3538,10 +2039,6 @@ class $AppDbManager {
   $AppDbManager(this._db);
   $$UsersTableTableManager get users =>
       $$UsersTableTableManager(_db, _db.users);
-  $$CompaniesTableTableManager get companies =>
-      $$CompaniesTableTableManager(_db, _db.companies);
-  $$UserCompaniesTableTableManager get userCompanies =>
-      $$UserCompaniesTableTableManager(_db, _db.userCompanies);
   $$ProvidersTableTableManager get providers =>
       $$ProvidersTableTableManager(_db, _db.providers);
   $$CategoriesTableTableManager get categories =>

@@ -2,7 +2,6 @@ import 'package:get_it/get_it.dart';
 import '/shared/services/connectivity_service.dart';
 import '/features/auth/cubit/auth_cubit.dart';
 import '/shared/db/daos/providers_dao.dart';
-import '/shared/db/daos/company_dao.dart';
 import '/shared/db/daos/user_dao.dart';
 import '/shared/db/daos/categories_dao.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -29,7 +28,6 @@ Future<void> setupLocator() async {
 
   // DAOs
   getIt.registerLazySingleton<UserDao>(() => UserDao(getIt<AppDb>()));
-  getIt.registerLazySingleton<CompanyDao>(() => CompanyDao(getIt<AppDb>()));
   getIt.registerLazySingleton<ProvidersDao>(() => ProvidersDao(getIt<AppDb>()));
   getIt.registerLazySingleton<CategoriesDao>(() => CategoriesDao(getIt<AppDb>()));
 
@@ -49,9 +47,9 @@ Future<void> setupLocator() async {
   getIt.registerLazySingleton<ApiService>(() => ApiService(getIt<CacheManager>(), getIt<ConnectivityService>()));
   getIt.registerLazySingleton<AuthRemoteSource>(() => AuthRemoteSource(getIt<ApiService>()));
   getIt.registerLazySingleton<AuthRepository>(
-      () => AuthRepository(getIt<AuthRemoteSource>(), getIt<CacheManager>(), getIt<UserDao>(), getIt<CompanyDao>()));
+      () => AuthRepository(getIt<AuthRemoteSource>(), getIt<CacheManager>(), getIt<UserDao>()));
 
-  getIt.registerLazySingleton<ProvidersRemoteSource>(() => ProvidersRemoteSource(getIt<ApiService>(), getIt<CacheManager>()));
+  getIt.registerLazySingleton<ProvidersRemoteSource>(() => ProvidersRemoteSource(getIt<ApiService>()));
   getIt.registerLazySingleton<ProvidersRepository>(() => ProvidersRepository(
         providersDao: getIt<ProvidersDao>(),
         remote: getIt<ProvidersRemoteSource>(),

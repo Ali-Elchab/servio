@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:invygo/core/theme/app_colors.dart';
+import '/core/theme/app_colors.dart';
 import '/core/localization/app_localizations.dart';
 
 extension ContextExtensions on BuildContext {

@@ -1,18 +1,11 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.example.InvyGo">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.ali.servio">
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    
-    <!-- Optional: For camera-based fallback scanning (mobile_scanner plugin) -->
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    
-    <!-- Camera features (not required so app works on all devices) -->
-    <uses-feature android:name="android.hardware.camera" android:required="false" />
-    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+    <uses-permission android:name="android.permission.CAMERA" />    
     <application
-        android:label="InvyGo"
+        android:label="Servio"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:enableOnBackInvokedCallback="true">
@@ -52,17 +45,6 @@
                 <data android:scheme="https" />
             </intent-filter>
         </activity>
-        
-        <!-- BroadcastReceiver for DataWedge scan output -->
-        <receiver
-            android:name="com.example.servio.scanner.DataWedgeBroadcastReceiver"
-            android:exported="true"
-            android:enabled="true">
-            <intent-filter>
-                <action android:name="com.invygo.scanner.SCAN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </receiver>
         
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->

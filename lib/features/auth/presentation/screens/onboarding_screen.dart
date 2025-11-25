@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import '/core/constants/app_assets.dart';
 import '/core/router/app_router_paths.dart';
-import '/core/theme/app_colors.dart';
 import '/core/theme/app_text.dart';
 import '/shared/cubits/locale/locale_cubit.dart';
 import '/shared/extensions/context_extensions.dart';
@@ -61,13 +60,15 @@ class OnboardingScreen extends StatelessWidget {
                     RichText(
                       textAlign: isAr ? TextAlign.end : TextAlign.start,
                       text: TextSpan(
-                        style: AppText.displayMedium(context).copyWith(color: colors.primary, fontWeight: FontWeight.w300),
+                        style:
+                            AppText.displayMedium(context).copyWith(color: colors.primary, fontWeight: FontWeight.w300),
                         children: isAr
                             ? [
                                 const TextSpan(text: "صُممنا لنخدمك.\nخُلِقنا لراحتك\n"),
                                 TextSpan(
                                   text: "نحن الحل.\n",
-                                  style: AppText.displayMedium(context).copyWith(color: colors.secondary, fontWeight: FontWeight.w700),
+                                  style: AppText.displayMedium(context)
+                                      .copyWith(color: colors.secondary, fontWeight: FontWeight.w700),
                                 ),
                                 const TextSpan(text: "دائمًا."),
                               ]
@@ -75,7 +76,8 @@ class OnboardingScreen extends StatelessWidget {
                                 const TextSpan(text: "Built to\nhelp.\nBuilt to\n"),
                                 TextSpan(
                                   text: "Servio.",
-                                  style: AppText.displayMedium(context).copyWith(color: colors.secondary, fontWeight: FontWeight.w700),
+                                  style: AppText.displayMedium(context)
+                                      .copyWith(color: colors.secondary, fontWeight: FontWeight.w700),
                                 ),
                               ],
                       ),

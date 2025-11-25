@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.InvyGo"
+    namespace = "com.ali.servio"
     compileSdk = 36
     ndkVersion = flutter.ndkVersion
 
@@ -19,7 +19,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.InvyGo"
+        applicationId = "com.ali.servio"
         minSdkVersion flutter.minSdkVersion
         targetSdk = 36
         versionCode = flutter.versionCode

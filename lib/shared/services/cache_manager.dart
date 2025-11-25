@@ -3,7 +3,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '/core/constants/app_constants.dart';
 
 class CacheKey {
-  static const companyId = "company_id";
   static const token = "token";
   static const role = "role";
   static const isDark = "is_dark";
@@ -33,10 +32,6 @@ class CacheManager {
   }
 
   bool get hasSeenOnboarding => hasSeenOnboardingMem;
-
-  int? get companyId => _prefs.getInt(CacheKey.companyId);
-  Future<void> setCompanyId(int? id) async =>
-      id == null ? _prefs.remove(CacheKey.companyId) : _prefs.setInt(CacheKey.companyId, id);
 
   String? get token => _prefs.getString(CacheKey.token);
   bool get hasToken => (_prefs.getString(CacheKey.token) ?? '').isNotEmpty;
@@ -79,7 +74,6 @@ class CacheManager {
     await _prefs.remove(CacheKey.token);
     await _prefs.remove(CacheKey.userId);
     await _prefs.remove(CacheKey.isLoggedIn);
-    await _prefs.remove(CacheKey.companyId);
     await _prefs.remove(CacheKey.lastSynced);
   }
 

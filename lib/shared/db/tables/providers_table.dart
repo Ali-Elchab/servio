@@ -4,7 +4,6 @@ import '/shared/db/db_converters.dart';
 @DataClassName('DbProvider')
 class Providers extends Table {
   IntColumn get id => integer()();
-  IntColumn get companyId => integer().nullable()();
   TextColumn get uuid => text().nullable()();
   TextColumn get name => text()();
   IntColumn get categoryId => integer().nullable()();

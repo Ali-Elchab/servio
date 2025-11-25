@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:phone_form_field/phone_form_field.dart';
 import '/core/constants/app_assets.dart';
 import '/core/router/app_router_paths.dart';
-import '/core/theme/app_colors.dart';
 import '/core/theme/app_text.dart';
 import '/shared/extensions/context_extensions.dart';
 import '/shared/widgets/app_page_wrapper.dart';
@@ -77,7 +76,23 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
         }
       },
       child: AppPageWrapper(
-        appBar: AppBar(),
+        appBar: AppBar(
+          actions: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: TextButton(
+                onPressed: () => context.go(RouterPaths.home),
+                child: Text(
+                  context.tr('actions.skip'),
+                  style: AppText.titleMedium(context).copyWith(
+                    decoration: TextDecoration.underline,
+                    color: colors.primary,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
         resizeToAvoidBottomInset: true,
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
@@ -117,8 +132,8 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                     labelColor: colors.primary,
                     unselectedLabelColor: const Color(0xFF7A7A7A),
                     tabs: [
-                      Tab(text: context.tr('auth.login.emailTab')),
-                      Tab(text: context.tr('auth.login.phoneTab')),
+                      Tab(text: context.tr('fields.email')),
+                      Tab(text: context.tr('fields.phoneNumber')),
                     ],
                   ),
                 ),

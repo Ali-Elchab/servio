@@ -11,7 +11,6 @@ class Provider {
   final Map<String, dynamic>? customFields;
   final bool isDeleted;
   final String? updatedAt;
-  final int? companyId;
 
   const Provider({
     required this.id,
@@ -26,7 +25,6 @@ class Provider {
     this.customFields,
     this.isDeleted = false,
     this.updatedAt,
-    this.companyId,
   });
 
   Provider copyWith({
@@ -42,7 +40,6 @@ class Provider {
     Map<String, dynamic>? customFields,
     bool? isDeleted,
     String? updatedAt,
-    int? companyId,
   }) {
     return Provider(
       id: id ?? this.id,
@@ -57,7 +54,6 @@ class Provider {
       customFields: customFields ?? this.customFields,
       isDeleted: isDeleted ?? this.isDeleted,
       updatedAt: updatedAt ?? this.updatedAt,
-      companyId: companyId ?? this.companyId,
     );
   }
 
@@ -75,7 +71,6 @@ class Provider {
       customFields: map['custom_fields'] is Map ? Map<String, dynamic>.from(map['custom_fields'] as Map) : null,
       isDeleted: (map['is_deleted'] as bool?) ?? false,
       updatedAt: map['updated_at'] as String?,
-      companyId: (map['company_id'] as num?)?.toInt(),
     );
   }
 
@@ -92,7 +87,6 @@ class Provider {
         'custom_fields': customFields,
         'is_deleted': isDeleted,
         'updated_at': updatedAt,
-        'company_id': companyId,
       };
 
   static int? _readCategoryId(Map<String, dynamic> map) {

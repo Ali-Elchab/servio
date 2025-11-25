@@ -8,7 +8,6 @@ class User {
   final String email;
   final String? image;
   final Map<String, dynamic>? customFields;
-  final UnmodifiableListView<Company> companies;
   final String? token;
 
   static const _mapEq = DeepCollectionEquality.unordered();
@@ -19,9 +18,8 @@ class User {
     required this.email,
     this.image,
     this.customFields,
-    required List<Company> companies,
     this.token,
-  }) : companies = UnmodifiableListView(companies);
+  });
 
   User copyWith({
     int? id,
@@ -38,7 +36,6 @@ class User {
       email: email ?? this.email,
       image: image ?? this.image,
       customFields: customFields ?? this.customFields,
-      companies: companies ?? this.companies,
       token: token ?? this.token,
     );
   }
@@ -50,20 +47,18 @@ class User {
       'email': email,
       'image': image,
       'custom_fields': customFields,
-      'companies': companies.map((c) => c.toMap()).toList(),
       if (includeToken) 'token': token,
     };
   }
 
   factory User.fromMap(Map<String, dynamic> map) {
-    final companiesRaw = (map["user"]['companies'] as List?) ?? const [];
     return User(
       id: (map["user"]['id'] as int),
       name: (map["user"]['name'] as String?) ?? '',
       email: (map["user"]['email'] as String?) ?? '',
       image: (map["user"]['image'] as String?),
-      customFields: (map["user"]['custom_fields'] is Map) ? Map<String, dynamic>.from(map["user"]['custom_fields'] as Map) : null,
-      companies: companiesRaw.whereType<Map>().map((e) => Company.fromMap(Map<String, dynamic>.from(e))).toList(),
+      customFields:
+          (map["user"]['custom_fields'] is Map) ? Map<String, dynamic>.from(map["user"]['custom_fields'] as Map) : null,
       token: map['token'] as String?,
     );
   }
@@ -72,7 +67,7 @@ class User {
   factory User.fromJson(String source) => User.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
-  String toString() => 'User(id: $id, name: $name, email: $email, companies: ${companies.length}, customFields: ${customFields?.keys.toList()})';
+  String toString() => 'User(id: $id, name: $name, email: $email,  customFields: ${customFields?.keys.toList()})';
 
   @override
   bool operator ==(Object other) {
@@ -83,8 +78,7 @@ class User {
         other.email == email &&
         other.image == image &&
         other.token == token &&
-        _mapEq.equals(other.customFields, customFields) &&
-        const ListEquality<Company>().equals(other.companies, companies);
+        _mapEq.equals(other.customFields, customFields);
   }
 
   @override
@@ -96,10 +90,6 @@ class User {
       image,
       token,
       _mapEq.hash(customFields),
-      const ListEquality<Company>().hash(companies),
     ]);
   }
-
-  // Optional helpers:
-  Company? get primaryCompany => companies.isNotEmpty ? companies.first : null;
 }

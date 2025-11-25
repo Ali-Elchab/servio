@@ -1,13 +1,10 @@
-// lib/shared/db/daos/user_dao.dart
 import 'package:drift/drift.dart';
 import '../app_db.dart';
 import '../tables/users_table.dart';
-import '../tables/companies_table.dart';
-import '../tables/user_companies_table.dart';
 
 part 'user_dao.g.dart';
 
-@DriftAccessor(tables: [Users, Companies, UserCompanies])
+@DriftAccessor(tables: [Users])
 class UserDao extends DatabaseAccessor<AppDb> with _$UserDaoMixin {
   UserDao(super.db);
 

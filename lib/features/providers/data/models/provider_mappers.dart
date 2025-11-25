@@ -15,7 +15,6 @@ Provider dbProviderToDomain(DbProvider row) => Provider(
       customFields: row.customFieldsJson,
       isDeleted: row.isDeleted,
       updatedAt: row.updatedAt,
-      companyId: row.companyId,
     );
 
 ProvidersCompanion domainToProviderCompanion(Provider p) => ProvidersCompanion(
@@ -30,6 +29,5 @@ ProvidersCompanion domainToProviderCompanion(Provider p) => ProvidersCompanion(
       description: Value(p.description),
       customFieldsJson: Value(p.customFields),
       updatedAt: Value(p.updatedAt),
-      companyId: Value(p.companyId),
       isDeleted: Value(p.isDeleted),
     );

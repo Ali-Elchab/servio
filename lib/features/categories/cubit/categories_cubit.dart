@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import '/features/categories/data/models/category.dart';
 import '/features/categories/data/repositories/categories_repository.dart';
 
 part 'categories_state.dart';

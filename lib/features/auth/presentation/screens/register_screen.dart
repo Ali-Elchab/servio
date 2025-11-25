@@ -6,7 +6,6 @@ import 'package:phone_form_field/phone_form_field.dart';
 import '/core/constants/app_assets.dart';
 import '/core/errors/user_messages.dart';
 import '/core/router/app_router_paths.dart';
-import '/core/theme/app_colors.dart';
 import '/core/theme/app_text.dart';
 import '/features/auth/cubit/auth_cubit.dart';
 import '/shared/extensions/context_extensions.dart';

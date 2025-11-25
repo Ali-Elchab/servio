@@ -4,9 +4,9 @@ import '../localization/app_localizations.dart';
 
 class AppConstants {
   // API details
-  static const String baseUrl = "https://api.servio.local";
-  // static const String apiVersion = "v1";
-  static const String xApiKey = "I6sNlKWoLzNlAN1nYxSTaU8FEVjrqATuP3k8OTiv";
+  static const String baseUrl = "http://192.168.50.94:8000/api";
+  static const String apiVersion = "v1";
+  static const String servioKey = "123456";
   // Application name
   static const String appName = "Servio";
 

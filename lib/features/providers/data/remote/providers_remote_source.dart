@@ -1,21 +1,15 @@
 import 'package:dio/dio.dart';
 import '/shared/services/api_service.dart';
-import '/shared/services/cache_manager.dart';
 import '/core/constants/api_endpoints.dart';
 import '/core/errors/app_exception.dart';
 import '../models/provider.dart';
 
 class ProvidersRemoteSource {
   final ApiService api;
-  final CacheManager cache;
-  ProvidersRemoteSource(this.api, this.cache);
+  ProvidersRemoteSource(this.api);
 
   Future<List<Provider>> fetchAll({String? search, int? categoryId, int? parentCategoryId}) async {
-    final companyId = cache.companyId;
-    if (companyId == null) throw CacheException('Missing companyId');
-
     final qp = <String, dynamic>{
-      'company_id': companyId,
       if (search != null && search.trim().isNotEmpty) 'search': search.trim(),
       if (categoryId != null) 'category_id': categoryId,
       if (parentCategoryId != null) 'parent_category_id': parentCategoryId,
@@ -56,11 +50,7 @@ class ProvidersRemoteSource {
   }
 
   Future<ProvidersDeltaResult> sync({String? lastSynced, int page = 1, int perPage = 200}) async {
-    final companyId = cache.companyId;
-    if (companyId == null) throw CacheException('Missing companyId');
-
     final qp = <String, dynamic>{
-      'company_id': companyId,
       'page': page,
       'per_page': perPage,
       if (lastSynced != null) 'last_synced': lastSynced,
