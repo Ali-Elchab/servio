@@ -11,7 +11,7 @@ class AppPageWrapper extends StatelessWidget {
   const AppPageWrapper({
     super.key,
     required this.child,
-    this.horizontalPadding = 0.14,
+    this.horizontalPadding = 0.08,
     this.topPadding = 30,
     this.scrollable = true,
     this.appBar,

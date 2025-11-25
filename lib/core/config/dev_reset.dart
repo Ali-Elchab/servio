@@ -20,10 +20,9 @@ Future<void> devResetAll() async {
 
   // clear cache (token, userId, onboarding, etc.)
   final cache = GetIt.I<CacheManager>();
-  await cache.clearTokenAndUser();
+  await cache.clearAll();
   await cache.setIsLoggedIn(false);
-  await cache.setHasSeenOnboarding(false); // if you have this
-
+  await cache.setHasSeenOnboarding(false);
   // (Optional) re-init DB
   GetIt.I.unregister<AppDb>();
   final freshDb = await AppDb.make();

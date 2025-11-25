@@ -1,7 +1,7 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:invygo/shared/widgets/custom_text_field.dart';
 import 'package:phone_form_field/phone_form_field.dart';
 import '/core/constants/app_assets.dart';
 import '/core/errors/user_messages.dart';
@@ -12,6 +12,7 @@ import '/shared/extensions/context_extensions.dart';
 import '/shared/widgets/app_page_wrapper.dart';
 import '/shared/widgets/phone_number_field.dart';
 import '/shared/widgets/snackbar.dart';
+import '/shared/widgets/custom_button.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -47,7 +48,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Future<void> _onRegisterPressed() async {
     if (!(_formKey.currentState?.validate() ?? false)) return;
     final fullPhone = phoneController.value.international;
-    log('Register pressed: $fullPhone');
     await context.read<AuthCubit>().register(
           phone: fullPhone,
           password: passwordController.text,
@@ -84,7 +84,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       child: Scaffold(
         resizeToAvoidBottomInset: true,
         body: AppPageWrapper(
-          appBar: AppBar(),
+          topPadding: 0,
           child: SingleChildScrollView(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
             child: Form(
@@ -93,167 +93,87 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const SizedBox(height: 12),
-                  Center(child: Image.asset(AppAssets.logoNoBg, width: 110)),
-                  const SizedBox(height: 24),
-                  Text(
-                    context.tr('auth.welcome.createAnAccount'),
-                    style: AppText.displaySmall(context).copyWith(
-                      color: colors.primary,
-                      fontWeight: FontWeight.w800,
+                  Center(child: Image.asset(AppAssets.logo, width: 110)),
+                  const SizedBox(height: 60),
+                  FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      context.tr('auth.register.title'),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: AppText.headlineLarge(context).copyWith(
+                        color: colors.primary,
+                        fontWeight: FontWeight.w800,
+                      ),
                     ),
                   ),
-                  const SizedBox(height: 30),
-                  _RoundedInput(
+                  const SizedBox(height: 8),
+                  Text(
+                    context.tr('auth.register.subtitle'),
+                    style: AppText.bodyMedium(context).copyWith(color: Colors.grey[700]),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 26),
+                  CustomTextField(
                     controller: nameController,
                     hintText: context.tr('fields.name'),
                     validator: (v) => (v == null || v.isEmpty) ? context.tr('validation.nameRequired') : null,
                   ),
-                  const SizedBox(height: 14),
+                  const SizedBox(height: 8),
                   PhoneNumberField(controller: phoneController),
-                  const SizedBox(height: 14),
-                  _RoundedInput(
+                  const SizedBox(height: 8),
+                  CustomTextField(
                     controller: emailController,
                     hintText: context.tr('fields.email'),
                     validator: (v) => _emailValidator(context, v),
                   ),
-                  const SizedBox(height: 14),
-                  _RoundedInput(
+                  const SizedBox(height: 8),
+                  CustomTextField(
                     controller: passwordController,
                     obscureText: obscureText,
                     hintText: context.tr('fields.password'),
-                    suffix: IconButton(
-                      icon: Icon(obscureText ? Icons.visibility_off : Icons.visibility, color: Colors.grey[500]),
-                      onPressed: _togglePasswordVisibility,
-                    ),
+                    isPassword: true,
                     validator: (v) => (v == null || v.isEmpty) ? context.tr('validation.passwordRequired') : null,
                   ),
-                  const SizedBox(height: 28),
-                  _OutlinedActionButton(
-                    label: context.tr('auth.register.asUser'),
-                    onTap: isLoading ? null : _onRegisterPressed,
+                  const SizedBox(height: 45),
+                  CustomButton(
+                    text: context.tr('auth.register.asUser'),
+                    onPressed: isLoading ? null : _onRegisterPressed,
+                    isLoading: isLoading,
                   ),
                   const SizedBox(height: 12),
-                  _FilledActionButton(
-                    label: context.tr('auth.register.asProvider'),
-                    onTap: isLoading ? null : () => context.go(RouterPaths.registerProvider),
+                  CustomButton(
+                    text: context.tr('auth.register.asProvider'),
+                    isFill: false,
+                    onPressed: isLoading ? null : () => context.go(RouterPaths.registerProvider),
                   ),
                   const SizedBox(height: 24),
-                  TextButton(
-                    onPressed: () => context.go(RouterPaths.login),
-                    child: Text(
-                      context.tr('auth.buttons.login'),
-                      style: AppText.bodyMedium(context).copyWith(
-                        color: colors.secondary,
-                        fontWeight: FontWeight.w700,
-                        decoration: TextDecoration.underline,
-                        decorationColor: colors.secondary,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        context.tr('auth.register.haveAccount'),
+                        style: AppText.bodyMedium(context).copyWith(color: Colors.grey[700]),
                       ),
-                    ),
+                      TextButton(
+                        onPressed: () => context.go(RouterPaths.login),
+                        child: Text(
+                          context.tr('auth.buttons.login'),
+                          style: AppText.bodyMedium(context).copyWith(
+                            color: colors.secondary,
+                            fontWeight: FontWeight.w700,
+                            decoration: TextDecoration.underline,
+                            decorationColor: colors.secondary,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 16),
                 ],
               ),
             ),
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class _RoundedInput extends StatelessWidget {
-  const _RoundedInput({
-    required this.controller,
-    required this.hintText,
-    this.validator,
-    this.obscureText = false,
-    this.suffix,
-  });
-
-  final TextEditingController controller;
-  final String hintText;
-  final String? Function(String?)? validator;
-  final bool obscureText;
-  final Widget? suffix;
-
-  @override
-  Widget build(BuildContext context) {
-    final colors = context.colors;
-    return TextFormField(
-      controller: controller,
-      validator: validator,
-      obscureText: obscureText,
-      decoration: InputDecoration(
-        hintText: hintText,
-        filled: true,
-        fillColor: Colors.white,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
-          borderSide: BorderSide(color: colors.secondary.withOpacity(0.6), width: 1.8),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
-          borderSide: BorderSide(color: colors.primary, width: 2),
-        ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
-          borderSide: BorderSide(color: Colors.red.shade400),
-        ),
-        suffixIcon: suffix,
-      ),
-    );
-  }
-}
-
-class _OutlinedActionButton extends StatelessWidget {
-  const _OutlinedActionButton({required this.label, required this.onTap});
-  final String label;
-  final VoidCallback? onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    final colors = context.colors;
-    return SizedBox(
-      width: double.infinity,
-      child: OutlinedButton(
-        onPressed: onTap,
-        style: OutlinedButton.styleFrom(
-          foregroundColor: colors.primary,
-          side: BorderSide(color: colors.secondary, width: 2),
-          padding: const EdgeInsets.symmetric(vertical: 14),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-        ),
-        child: Text(
-          label,
-          style: AppText.titleMedium(context).copyWith(fontWeight: FontWeight.w700),
-        ),
-      ),
-    );
-  }
-}
-
-class _FilledActionButton extends StatelessWidget {
-  const _FilledActionButton({required this.label, required this.onTap});
-  final String label;
-  final VoidCallback? onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    final colors = context.colors;
-    return SizedBox(
-      width: double.infinity,
-      child: ElevatedButton(
-        onPressed: onTap,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: colors.secondary,
-          foregroundColor: Colors.white,
-          padding: const EdgeInsets.symmetric(vertical: 14),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-        ),
-        child: Text(
-          label,
-          style: AppText.titleMedium(context).copyWith(fontWeight: FontWeight.w700),
         ),
       ),
     );

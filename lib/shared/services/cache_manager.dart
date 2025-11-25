@@ -40,7 +40,8 @@ class CacheManager {
       v == null || v.isEmpty ? _prefs.remove(CacheKey.token) : _prefs.setString(CacheKey.token, v);
 
   int? get userId => _prefs.getInt(CacheKey.userId);
-  Future<void> setUserId(int? id) async => id == null ? _prefs.remove(CacheKey.userId) : _prefs.setInt(CacheKey.userId, id);
+  Future<void> setUserId(int? id) async =>
+      id == null ? _prefs.remove(CacheKey.userId) : _prefs.setInt(CacheKey.userId, id);
 
   String get currentLanguageCode => _prefs.getString(CacheKey.language) ?? AppConstants.defaultLang;
   bool get hasLanguage => hasLanguageMem;
@@ -70,13 +71,6 @@ class CacheManager {
     return null;
   }
 
-  Future<void> clearTokenAndUser() async {
-    await _prefs.remove(CacheKey.token);
-    await _prefs.remove(CacheKey.userId);
-    await _prefs.remove(CacheKey.isLoggedIn);
-    await _prefs.remove(CacheKey.lastSynced);
-  }
-
   String? get lastSyncedAt => _prefs.getString(CacheKey.lastSynced);
   Future<void> setLastSyncedAt(String? isoString) async {
     if (isoString == null || isoString.isEmpty) {
@@ -95,13 +89,21 @@ class CacheManager {
     }
   }
 
-  // Warehouses-specific TTL helpers
-  String? get warehousesLastSyncedAt => _prefs.getString(CacheKey.warehousesLastSynced);
-  Future<void> setWarehousesLastSyncedAt(String? isoString) async {
-    if (isoString == null || isoString.isEmpty) {
-      await _prefs.remove(CacheKey.warehousesLastSynced);
-    } else {
-      await _prefs.setString(CacheKey.warehousesLastSynced, isoString);
-    }
+  /// Clear all persisted cache values and reset in-memory flags.
+  Future<void> clearAll() async {
+    await Future.wait([
+      _prefs.remove(CacheKey.token),
+      _prefs.remove(CacheKey.userId),
+      _prefs.remove(CacheKey.isLoggedIn),
+      _prefs.remove(CacheKey.role),
+      _prefs.remove(CacheKey.language),
+      _prefs.remove(CacheKey.isDark),
+      _prefs.remove(CacheKey.hasSeenOnboarding),
+      _prefs.remove(CacheKey.lastSynced),
+      _prefs.remove(CacheKey.categoriesLastSynced),
+      _prefs.remove(CacheKey.warehousesLastSynced),
+    ]);
+    hasLanguageMem = false;
+    hasSeenOnboardingMem = false;
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '/core/theme/app_colors.dart';
 import '/shared/extensions/context_extensions.dart';
 
@@ -38,7 +39,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
     final textDirection = _getTextDirection(widget.controller.text, Directionality.of(context));
 
     return SizedBox(
-      height: widget.isBig ? 100 : 48,
+      height: widget.isBig ? 100 : 42.h,
       child: TextFormField(
         controller: widget.controller,
         obscureText: widget.obscureText,
@@ -51,7 +52,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         },
         onChanged: widget.onChanged,
         decoration: InputDecoration(
-          contentPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
           hintText: widget.hintText,
           prefixIcon: widget.icon != null ? Icon(widget.icon) : null,
           suffixIcon: hasError
@@ -61,7 +62,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 )
               : widget.isPassword
                   ? IconButton(
-                      icon: Icon(widget.obscureText ? Icons.visibility_off : Icons.visibility, color: AppColors.primary),
+                      icon:
+                          Icon(widget.obscureText ? Icons.visibility_off : Icons.visibility, color: AppColors.primary),
                       onPressed: widget.onToggleVisibility,
                     )
                   : null,

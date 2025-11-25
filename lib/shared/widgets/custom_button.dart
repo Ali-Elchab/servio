@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:invygo/shared/extensions/context_extensions.dart';
 import '/core/theme/app_colors.dart';
 import '/core/theme/app_text.dart';
 
@@ -26,7 +27,7 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color btnColor = color ?? AppColors.primary;
+    final Color btnColor = color ?? context.colors.secondary;
     final Color bgColor = isFill ? btnColor : Colors.transparent;
     final Color txtColor = isFill ? Theme.of(context).colorScheme.onPrimary : AppColors.primary;
 
@@ -40,7 +41,7 @@ class CustomButton extends StatelessWidget {
           foregroundColor: txtColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
-            side: BorderSide(color: AppColors.primary, width: isFill ? 0 : 2),
+            side: BorderSide(color: AppColors.secondary, width: isFill ? 0 : 2),
           ),
         ),
         child: isLoading
@@ -59,7 +60,7 @@ class CustomButton extends StatelessWidget {
                     const SizedBox(width: 8),
                   ],
                   Text(text,
-                      style: AppText.bodyLarge(context).copyWith(
+                      style: AppText.bodyMedium(context).copyWith(
                         fontWeight: FontWeight.bold,
                         height: 1.2,
                         color: txtColor,

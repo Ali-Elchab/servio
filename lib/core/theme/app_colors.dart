@@ -55,7 +55,7 @@ class AppColors {
     surface2: bg2Light,
     text: Colors.black87,
     borderIdle: gray300,
-    borderFocused: primary,
+    borderFocused: secondary,
     borderError: error,
     buttonBg: primary,
     buttonFg: white,

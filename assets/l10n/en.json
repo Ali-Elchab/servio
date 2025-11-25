@@ -19,6 +19,13 @@
       "newPassword": "New Password",
       "confirmNewPassword": "Confirm New Password"
     },
+    "register": {
+      "title": "Create your account",
+      "subtitle": "Join Servio and get started",
+      "asUser": "Sign Up",
+      "asProvider": "Register as Provider",
+      "haveAccount": "Already have an account?"
+    },
     "buttons": {
       "login": "Log In",
       "register": "Register",

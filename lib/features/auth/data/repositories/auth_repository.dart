@@ -81,7 +81,7 @@ class AuthRepository {
       if (id != null) {
         await (userDao.delete(userDao.users)..where((u) => u.id.equals(id))).go();
       }
-      await cache.clearTokenAndUser();
+      await cache.clearAll();
     });
   }
 

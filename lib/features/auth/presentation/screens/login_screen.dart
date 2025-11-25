@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:invygo/shared/widgets/custom_button.dart';
+import 'package:invygo/shared/widgets/custom_text_field.dart';
 import 'package:phone_form_field/phone_form_field.dart';
 import '/core/constants/app_assets.dart';
 import '/core/router/app_router_paths.dart';
@@ -76,6 +80,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
         }
       },
       child: AppPageWrapper(
+        topPadding: 0,
         appBar: AppBar(
           actions: [
             Padding(
@@ -95,23 +100,22 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
         ),
         resizeToAvoidBottomInset: true,
         child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 0),
           child: Form(
             key: _formKey,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const SizedBox(height: 12),
-                Center(child: Image.asset(AppAssets.logoNoBg, width: 110)),
-                const SizedBox(height: 20),
+                Image.asset(AppAssets.logo, width: 110.w),
+                SizedBox(height: 38.h),
                 Text(
                   context.tr('auth.login.title'),
-                  style: AppText.displaySmall(context).copyWith(
+                  style: AppText.headlineMedium(context).copyWith(
                     color: colors.primary,
                     fontWeight: FontWeight.w800,
                   ),
                 ),
-                const SizedBox(height: 26),
+                const SizedBox(height: 24),
 
                 // ---- TAB BAR ----
                 Container(
@@ -132,8 +136,16 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                     labelColor: colors.primary,
                     unselectedLabelColor: const Color(0xFF7A7A7A),
                     tabs: [
-                      Tab(text: context.tr('fields.email')),
-                      Tab(text: context.tr('fields.phoneNumber')),
+                      Tab(
+                          child: Text(
+                        context.tr('fields.email'),
+                        style: TextStyle(fontSize: 14),
+                      )),
+                      Tab(
+                          child: Text(
+                        context.tr('fields.phoneNumber'),
+                        style: TextStyle(fontSize: 14),
+                      )),
                     ],
                   ),
                 ),
@@ -146,7 +158,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                     onCompletePhoneChanged: (full) => debugPrint('Full phone: $full'),
                   )
                 else
-                  _RoundedInput(
+                  CustomTextField(
                     controller: emailController,
                     hintText: context.tr('fields.email'),
                     validator: _emailValidator,
@@ -154,14 +166,12 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
 
                 const SizedBox(height: 14),
 
-                _RoundedInput(
+                CustomTextField(
                   controller: passwordController,
                   obscureText: obscureText,
                   hintText: context.tr('fields.password'),
-                  suffix: IconButton(
-                    icon: Icon(obscureText ? Icons.visibility_off : Icons.visibility, color: Colors.grey[500]),
-                    onPressed: _togglePasswordVisibility,
-                  ),
+                  isPassword: true,
+                  // icon: Icon(obscureText ? Icons.visibility_off : Icons.visibility, color: Colors.grey[500]),
                   validator: (v) => (v == null || v.isEmpty) ? context.tr('validation.passwordRequired') : null,
                 ),
                 Align(
@@ -178,33 +188,14 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                     ),
                   ),
                 ),
-                const SizedBox(height: 12),
+                SizedBox(height: 32.h),
 
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: colors.secondary,
-                      foregroundColor: Colors.white,
-                      padding: const EdgeInsets.symmetric(vertical: 14),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-                    ),
-                    onPressed: isLoading ? null : _onLoginPressed,
-                    child: isLoading
-                        ? const SizedBox(
-                            height: 22,
-                            width: 22,
-                            child: CircularProgressIndicator(
-                                strokeWidth: 2, valueColor: AlwaysStoppedAnimation<Color>(Colors.white)),
-                          )
-                        : Text(
-                            context.tr('auth.buttons.login'),
-                            style:
-                                AppText.titleMedium(context).copyWith(color: Colors.white, fontWeight: FontWeight.w700),
-                          ),
-                  ),
+                CustomButton(
+                  text: 'Log In',
+                  onPressed: _onLoginPressed,
+                  isLoading: isLoading,
                 ),
-                const SizedBox(height: 28),
+                const SizedBox(height: 70),
 
                 Row(
                   children: [
@@ -220,8 +211,9 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
-                    _SocialIcon(label: 'G'),
-                    SizedBox(width: 18),
+                    _SocialIcon(
+                      svgAsset: 'assets/icons/google_logo.svg',
+                    ),
                     _SocialIcon(icon: Icons.apple),
                   ],
                 ),
@@ -231,12 +223,12 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text("Don't have an account?",
-                        style: AppText.bodyMedium(context).copyWith(color: Colors.grey[700])),
+                        style: AppText.labelMedium(context).copyWith(color: Colors.grey[700])),
                     TextButton(
                       onPressed: () => context.go(RouterPaths.register),
                       child: Text(
-                        context.tr('auth.buttons.signUp'),
-                        style: AppText.bodyMedium(context).copyWith(
+                        context.tr('auth.buttons.createAccount'),
+                        style: AppText.labelMedium(context).copyWith(
                           color: colors.secondary,
                           fontWeight: FontWeight.w700,
                           decoration: TextDecoration.underline,
@@ -256,75 +248,23 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
   }
 }
 
-class _RoundedInput extends StatelessWidget {
-  const _RoundedInput({
-    required this.controller,
-    required this.hintText,
-    this.validator,
-    this.obscureText = false,
-    this.suffix,
-  });
-
-  final TextEditingController controller;
-  final String hintText;
-  final String? Function(String?)? validator;
-  final bool obscureText;
-  final Widget? suffix;
-
-  @override
-  Widget build(BuildContext context) {
-    final colors = context.colors;
-    return TextFormField(
-      controller: controller,
-      validator: validator,
-      obscureText: obscureText,
-      decoration: InputDecoration(
-        hintText: hintText,
-        filled: true,
-        fillColor: Colors.white,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
-          borderSide: BorderSide(color: colors.secondary.withOpacity(0.6), width: 1.8),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
-          borderSide: BorderSide(color: colors.primary, width: 2),
-        ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
-          borderSide: BorderSide(color: Colors.red.shade400),
-        ),
-        suffixIcon: suffix,
-      ),
-    );
-  }
-}
-
 class _SocialIcon extends StatelessWidget {
-  const _SocialIcon({this.icon, this.label});
+  const _SocialIcon({Key? key, this.icon, this.svgAsset}) : super(key: key);
 
   final IconData? icon;
-  final String? label;
+  final String? svgAsset;
 
   @override
   Widget build(BuildContext context) {
-    final border = RoundedRectangleBorder(borderRadius: BorderRadius.circular(12));
-    return Material(
-      shape: border,
-      elevation: 1,
-      color: Colors.white,
-      child: InkWell(
-        borderRadius: BorderRadius.circular(12),
-        onTap: () {},
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-          child: icon != null
-              ? Icon(icon, size: 26, color: Colors.black)
-              : Text(label ?? '',
-                  style: AppText.titleMedium(context).copyWith(fontWeight: FontWeight.w700, color: Colors.red)),
-        ),
-      ),
+    if (svgAsset != null) {
+      return IconButton(
+        onPressed: () {},
+        icon: SvgPicture.asset(svgAsset!, width: 26, height: 26),
+      );
+    }
+    return IconButton(
+      onPressed: () {},
+      icon: Icon(icon, size: 38, color: Colors.black),
     );
   }
 }
