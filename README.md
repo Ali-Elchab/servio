@@ -1,30 +1,45 @@
-# 🚀 Flutter Starter Kit
+# Servio
 
-A production-ready Flutter starter kit designed for scalable apps with clean architecture, Riverpod state management, Drift local persistence, and GoRouter navigation. Flexible enough for any type of app (e-commerce, SaaS, sales, etc.).
+Flutter app for a service-provider directory: people find local providers by category and location. It talks to the Laravel API in [servio_server](https://github.com/Ali-Elchab/servio_server).
 
----
+**Status:** in development, not launched.
 
-## ✨ Features
+## What the app has today
 
-- **Clean Architecture** with separation into `core/`, `data/`, `features/`, `shared/`
-- **Authentication flow** with sealed `AuthState` (`AuthChecking`, `Authenticated`, `Unauthenticated`, `AuthGuest`)
-- **Local bootstrap** from cache + Drift DB
-- **Navigation** via GoRouter with redirects for auth, language, onboarding
-- **Persistence** with Drift (products, customers, invoices, users)
-- **Error handling** using `AppException` + strongly typed `Result<T>`
-- **UI/UX**: responsive with `flutter_screenutil`, shared widgets, light/dark themes
-- **Internationalization** with localization extension
-- **Extensible** feature-first structure
+- Onboarding and language selection (Arabic and English)
+- Customer sign-up, provider sign-up, login and guest mode
+- Home screen with categories and providers
+- Profile and settings
+- Local Drift (SQLite) cache and a typed API layer
 
----
+## Still to build in the app
 
-## 📂 Folder Structure
+Provider detail screen, ratings, favorites and search by location. The API already supports ratings, favorites, media and radius search.
 
+## Stack
+
+Flutter, Dart, Cubit/Bloc, GoRouter, GetIt, Dio, Drift, flutter_screenutil
+
+## Structure
+
+```text
 lib/
-├─ app.dart # Root widget
-├─ main.dart # Entry point
-│
-├─ core/ # Config, router, theme, constants
-├─ data/ # Local DB (Drift), remote services, repositories, models
-├─ features/ # Feature modules (auth, products, customers, etc.)
-├─ shared/ # Common widgets, providers, services, extensions
+  core/       config, constants, DI, errors, localization, router, theme
+  features/   auth, home, categories, providers, account, settings, app_shell
+  shared/     cubits, local database, models, services, widgets
+```
+
+## Run it
+
+1. Start the API from `servio_server` and note its URL.
+2. Set `baseUrl` and `servioKey` in `lib/core/constants/app_constants.dart`. `servioKey` must match `SERVIO_KEY` on the server.
+3. Run:
+
+```bash
+flutter pub get
+flutter run
+```
+
+## Notes
+
+`baseUrl` points to a local network address and `servioKey` is a constant in the source. Use your own values, and move them to `--dart-define` before building for release.
