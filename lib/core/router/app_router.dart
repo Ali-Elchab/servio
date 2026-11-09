@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:invygo/features/auth/presentation/screens/language_selector_screen.dart';
+import 'package:servio/features/auth/presentation/screens/language_selector_screen.dart';
 import '/features/app_shell/app_shell.dart';
 import '/features/home/presentation/home_screen.dart';
 import '/features/auth/presentation/screens/onboarding_screen.dart';

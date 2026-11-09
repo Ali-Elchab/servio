@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:invygo/shared/extensions/context_extensions.dart';
+import 'package:servio/shared/extensions/context_extensions.dart';
 import '/core/theme/app_colors.dart';
 import '/core/theme/app_text.dart';
 

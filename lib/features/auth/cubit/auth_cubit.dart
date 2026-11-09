@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:invygo/core/config/dev_reset.dart';
+import 'package:servio/core/config/dev_reset.dart';
 import '/shared/models/role.dart';
 import '/features/auth/data/models/user.dart';
 import '/features/auth/data/repositories/auth_repository.dart';
